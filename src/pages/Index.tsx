@@ -2,23 +2,27 @@ import { useState } from "react";
 import heroImg from "@/assets/hero-tailor.jpg";
 import craftImg from "@/assets/craft-detail.jpg";
 import flatlayImg from "@/assets/services-flatlay.jpg";
-import shopSign from "@/assets/shop-sign.png";
-import shopFront from "@/assets/shop-front.png";
-import workNeckline from "@/assets/work-neckline.png";
-import workBlouse from "@/assets/work-blouse.png";
+import trendBlouse1 from "@/assets/trend-blouse-1.jpg";
+import trendBlouse2 from "@/assets/trend-blouse-2.jpg";
+import trendBlouse3 from "@/assets/trend-blouse-3.jpg";
+import trendBlouse4 from "@/assets/trend-blouse-4.jpg";
 import trendKurti1 from "@/assets/trend-kurti-1.jpg";
 import trendKurti2 from "@/assets/trend-kurti-2.jpg";
 import trendKurti3 from "@/assets/trend-kurti-3.jpg";
 import stationeryToys from "@/assets/stationery-toys.jpg";
+import stationeryNotebooks from "@/assets/stationery-notebooks.jpg";
+import stationeryPens from "@/assets/stationery-pens.jpg";
+import stationeryPencils from "@/assets/stationery-pencils.jpg";
+import stationeryToysKids from "@/assets/stationery-toys-kids.jpg";
 import shopOwners from "@/assets/shop-owners.jpg";
 import { Scissors, Ruler, Sparkles, Phone, MapPin, Clock, Instagram, Mail, Wand2, BookOpen, Pencil, Palette, ToyBrick } from "lucide-react";
 import { toast } from "sonner";
 
 const galleryImages = [
-  { src: workBlouse, alt: "Hand-crafted pink blouse with intricate gold patti work neckline" },
-  { src: workNeckline, alt: "Designer blouse neckline with golden lace stitched on the machine" },
-  { src: shopFront, alt: "Poonam Ladies Tailor shop front with stationery and bangles display" },
-  { src: shopSign, alt: "Poonam Tailor & Stationery — Ladies Specialist signboard" },
+  { src: trendBlouse1, alt: "AI-designed magenta pink silk blouse with golden zari and gota patti embroidery" },
+  { src: trendBlouse2, alt: "AI-designed maroon velvet bridal blouse with pearl and zardozi work" },
+  { src: trendBlouse3, alt: "AI-designed emerald green blouse with golden floral sequin embroidery" },
+  { src: trendBlouse4, alt: "AI-designed peach blouse with dabka and stone embroidery on princess cut" },
 ];
 
 const trendingKurtis = [
@@ -139,12 +143,12 @@ const Index = () => {
         <div className="container grid md:grid-cols-12 gap-12 md:gap-16 items-center">
           <div className="md:col-span-5 order-2 md:order-1">
             <img
-              src={shopFront}
-              alt="Inside Poonam Ladies Tailor & Stationary shop with the owner at work"
+              src={trendBlouse1}
+              alt="Designer magenta pink blouse with golden zari work — Poonam Ladies Tailor & Stationary"
               className="w-full h-auto shadow-[var(--shadow-elegant)] object-cover aspect-[4/5]"
               loading="lazy"
-              width={1400}
-              height={1000}
+              width={1024}
+              height={1280}
             />
           </div>
           <div className="md:col-span-7 md:pl-8 order-1 md:order-2">
@@ -256,29 +260,32 @@ const Index = () => {
           </div>
           <div className="relative min-h-[60vh] overflow-hidden">
             <img
-              src={workNeckline}
-              alt="Designer blouse neckline being stitched on the sewing machine with golden lace at Poonam Ladies Tailor & Stationary"
+              src={trendBlouse2}
+              alt="Bridal maroon velvet designer blouse with pearl and zardozi work at Poonam Ladies Tailor & Stationary"
               className="absolute inset-0 h-full w-full object-cover"
               loading="lazy"
-              width={1400}
-              height={1000}
+              width={1024}
+              height={1280}
             />
           </div>
         </div>
       </section>
 
-      {/* Our Work — real photos */}
+      {/* Blouse Designs — AI generated lookbook */}
       <section id="work" className="py-24 md:py-32 bg-background">
         <div className="container">
           <div className="max-w-2xl mb-12 md:mb-16">
-            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-5">Our Work</p>
+            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-5 flex items-center gap-2">
+              <Wand2 className="w-3.5 h-3.5" strokeWidth={1.5} />
+              Blouse Designs · AI Lookbook
+            </p>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-burgundy leading-[1.05] text-balance">
-              Real pieces from our <em className="italic">atelier</em>.
+              Designer <em className="italic">blouses</em>, stitched to your fit.
             </h2>
             <div className="gold-rule my-6 max-w-[120px]" />
             <p className="text-foreground/70 leading-relaxed max-w-xl">
-              A glimpse of recent work and our shop — designer blouses, neckline patti, and the place where it all
-              comes together.
+              Pick a design you love — bridal, party-wear or everyday — and we'll tailor it for you in your
+              chosen fabric and a flawless fit.
             </p>
           </div>
 
@@ -351,6 +358,49 @@ const Index = () => {
                 For school & home
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stationery Products grid */}
+      <section id="stationery-products" className="py-24 md:py-32 bg-background">
+        <div className="container">
+          <div className="max-w-2xl mb-12 md:mb-16">
+            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-5">Stationery Products</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-burgundy leading-[1.05] text-balance">
+              Everything for <em className="italic">school</em> & little hands.
+            </h2>
+            <div className="gold-rule my-6 max-w-[120px]" />
+            <p className="text-foreground/70 leading-relaxed max-w-xl">
+              Notebooks, pens, pencils and toys — quality essentials, fair prices, available right at the counter.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            {[
+              { src: stationeryNotebooks, title: "Notebooks", desc: "Long, short, register & drawing books", icon: BookOpen },
+              { src: stationeryPens, title: "Pens", desc: "Ball pens, gel pens & ink pens", icon: Pencil },
+              { src: stationeryPencils, title: "Pencils", desc: "Pencils, erasers & sharpeners", icon: Palette },
+              { src: stationeryToysKids, title: "Kids' Toys", desc: "Soft toys, blocks & little cars", icon: ToyBrick },
+            ].map((p) => (
+              <article key={p.title} className="group">
+                <div className="relative overflow-hidden bg-[hsl(var(--cream))] aspect-square">
+                  <img
+                    src={p.src}
+                    alt={`${p.title} for school and home — ${p.desc}`}
+                    loading="lazy"
+                    width={1024}
+                    height={1024}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                  />
+                </div>
+                <div className="pt-5">
+                  <p.icon className="w-5 h-5 text-gold mb-2" strokeWidth={1.25} />
+                  <h3 className="font-display text-xl md:text-2xl text-burgundy leading-tight">{p.title}</h3>
+                  <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">{p.desc}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
