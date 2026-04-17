@@ -60,6 +60,7 @@ const services = [
 
 const Index = () => {
   const [form, setForm] = useState({ name: "", phone: "", message: "" });
+  const [trendTab, setTrendTab] = useState<"blouse" | "kurti">("blouse");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
