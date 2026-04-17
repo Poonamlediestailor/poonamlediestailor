@@ -362,6 +362,49 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Stationery Products grid */}
+      <section id="stationery-products" className="py-24 md:py-32 bg-background">
+        <div className="container">
+          <div className="max-w-2xl mb-12 md:mb-16">
+            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-5">Stationery Products</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-burgundy leading-[1.05] text-balance">
+              Everything for <em className="italic">school</em> & little hands.
+            </h2>
+            <div className="gold-rule my-6 max-w-[120px]" />
+            <p className="text-foreground/70 leading-relaxed max-w-xl">
+              Notebooks, pens, pencils and toys — quality essentials, fair prices, available right at the counter.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            {[
+              { src: stationeryNotebooks, title: "Notebooks", desc: "Long, short, register & drawing books", icon: BookOpen },
+              { src: stationeryPens, title: "Pens", desc: "Ball pens, gel pens & ink pens", icon: Pencil },
+              { src: stationeryPencils, title: "Pencils", desc: "Pencils, erasers & sharpeners", icon: Palette },
+              { src: stationeryToysKids, title: "Kids' Toys", desc: "Soft toys, blocks & little cars", icon: ToyBrick },
+            ].map((p) => (
+              <article key={p.title} className="group">
+                <div className="relative overflow-hidden bg-[hsl(var(--cream))] aspect-square">
+                  <img
+                    src={p.src}
+                    alt={`${p.title} for school and home — ${p.desc}`}
+                    loading="lazy"
+                    width={1024}
+                    height={1024}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                  />
+                </div>
+                <div className="pt-5">
+                  <p.icon className="w-5 h-5 text-gold mb-2" strokeWidth={1.25} />
+                  <h3 className="font-display text-xl md:text-2xl text-burgundy leading-tight">{p.title}</h3>
+                  <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">{p.desc}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Trending Designs — AI generated lookbook */}
       <section id="trending" className="py-24 md:py-32 bg-burgundy-deep text-primary-foreground relative overflow-hidden">
         <div
