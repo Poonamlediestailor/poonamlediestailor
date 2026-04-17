@@ -2,8 +2,19 @@ import { useState } from "react";
 import heroImg from "@/assets/hero-tailor.jpg";
 import craftImg from "@/assets/craft-detail.jpg";
 import flatlayImg from "@/assets/services-flatlay.jpg";
+import shopSign from "@/assets/shop-sign.png";
+import shopFront from "@/assets/shop-front.png";
+import workNeckline from "@/assets/work-neckline.png";
+import workBlouse from "@/assets/work-blouse.png";
 import { Scissors, Ruler, Sparkles, Phone, MapPin, Clock, Instagram, Mail } from "lucide-react";
 import { toast } from "sonner";
+
+const galleryImages = [
+  { src: workBlouse, alt: "Hand-crafted pink blouse with intricate gold patti work neckline" },
+  { src: workNeckline, alt: "Designer blouse neckline with golden lace stitched on the machine" },
+  { src: shopFront, alt: "Poonam Ladies Tailor shop front with stationery and bangles display" },
+  { src: shopSign, alt: "Poonam Tailor & Stationery — Ladies Specialist signboard" },
+];
 
 const services = [
   {
