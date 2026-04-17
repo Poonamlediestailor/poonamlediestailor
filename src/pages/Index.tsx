@@ -12,7 +12,8 @@ import trendBlouse3 from "@/assets/trend-blouse-3.jpg";
 import trendKurti1 from "@/assets/trend-kurti-1.jpg";
 import trendKurti2 from "@/assets/trend-kurti-2.jpg";
 import trendKurti3 from "@/assets/trend-kurti-3.jpg";
-import { Scissors, Ruler, Sparkles, Phone, MapPin, Clock, Instagram, Mail, Wand2 } from "lucide-react";
+import stationeryToys from "@/assets/stationery-toys.jpg";
+import { Scissors, Ruler, Sparkles, Phone, MapPin, Clock, Instagram, Mail, Wand2, BookOpen, Pencil, Palette, ToyBrick } from "lucide-react";
 import { toast } from "sonner";
 
 const galleryImages = [
@@ -80,13 +81,13 @@ const Index = () => {
           <a href="#home" className="flex items-center gap-2 text-primary-foreground">
             <span className="font-display text-xl md:text-2xl tracking-wide">Poonam</span>
             <span className="hidden sm:inline text-[10px] uppercase tracking-[0.3em] text-primary-foreground/70">
-              Ladies Tailor
+              Ladies Tailor & Stationary
             </span>
           </a>
           <div className="hidden md:flex items-center gap-8 text-sm text-primary-foreground/85">
             <a href="#services" className="hover:text-primary-foreground transition-colors">Services</a>
+            <a href="#stationery" className="hover:text-primary-foreground transition-colors">Stationery</a>
             <a href="#trending" className="hover:text-primary-foreground transition-colors">Trending</a>
-            <a href="#work" className="hover:text-primary-foreground transition-colors">Our Work</a>
             <a href="#contact" className="hover:text-primary-foreground transition-colors">Contact</a>
           </div>
           <a
@@ -102,7 +103,7 @@ const Index = () => {
       <section id="home" className="relative min-h-[100svh] w-full overflow-hidden">
         <img
           src={heroImg}
-          alt="Elegant lady wearing a custom-tailored burgundy and gold lehenga at Poonam Ladies Tailor atelier"
+          alt="Elegant lady wearing a custom-tailored burgundy and gold lehenga at Poonam Ladies Tailor & Stationary"
           className="absolute inset-0 h-full w-full object-cover object-[center_25%]"
           width={1600}
           height={1800}
@@ -113,16 +114,17 @@ const Index = () => {
         <div className="container relative z-10 flex min-h-[100svh] flex-col justify-end pb-20 pt-32">
           <div className="max-w-2xl animate-fade-up">
             <p className="text-xs uppercase tracking-[0.4em] text-[hsl(var(--gold-soft))] mb-5">
-              Est. Boutique Tailoring
+              Tailoring · Stationery · Toys
             </p>
             <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-primary-foreground leading-[0.95] text-balance">
               Poonam<br />
               <span className="italic text-[hsl(var(--gold-soft))]">Ladies Tailor</span>
+              <span className="block text-2xl sm:text-3xl md:text-4xl mt-2 text-primary-foreground/85 not-italic tracking-wide">& Stationary</span>
             </h1>
             <div className="gold-rule my-6 max-w-xs" />
             <p className="text-base md:text-lg text-primary-foreground/85 max-w-xl leading-relaxed">
-              Bespoke stitching for the modern woman — bridal lehengas, designer blouses, salwar suits and kurtis,
-              tailored with timeless craft and a perfect fit.
+              Bespoke ladies stitching — bridal lehengas, designer blouses, salwar suits and kurtis. Plus a full
+              stationery shop with notebooks, pens, pencils and toys for the little ones.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
@@ -148,7 +150,7 @@ const Index = () => {
           <div className="md:col-span-5 order-2 md:order-1">
             <img
               src={shopFront}
-              alt="Inside Poonam Ladies Tailor & Stationery shop with the owner at work"
+              alt="Inside Poonam Ladies Tailor & Stationary shop with the owner at work"
               className="w-full h-auto shadow-[var(--shadow-elegant)] object-cover aspect-[4/5]"
               loading="lazy"
               width={1400}
@@ -162,9 +164,9 @@ const Index = () => {
             </h2>
             <div className="gold-rule my-7 max-w-[120px]" />
             <p className="text-foreground/75 leading-relaxed text-base md:text-lg max-w-xl">
-              For years, Poonam Ladies Tailor has been the trusted name for women who value craftsmanship
-              and a flawless fit. From everyday kurtis to once-in-a-lifetime bridal couture, every garment
-              is measured, cut, and finished with an artisan's care.
+              For years, Poonam Ladies Tailor & Stationary has been the trusted neighbourhood shop — expert
+              ladies stitching for women who value craftsmanship and a flawless fit, alongside a friendly
+              stationery counter stocked with everything students and little kids need.
             </p>
             <dl className="grid grid-cols-3 gap-6 mt-10 max-w-md">
               {[
@@ -233,7 +235,7 @@ const Index = () => {
           <div className="relative min-h-[60vh] overflow-hidden">
             <img
               src={workNeckline}
-              alt="Designer blouse neckline being stitched on the sewing machine with golden lace at Poonam Ladies Tailor"
+              alt="Designer blouse neckline being stitched on the sewing machine with golden lace at Poonam Ladies Tailor & Stationary"
               className="absolute inset-0 h-full w-full object-cover"
               loading="lazy"
               width={1400}
@@ -275,6 +277,58 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-burgundy-deep/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </figure>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stationery & Toys */}
+      <section id="stationery" className="py-24 md:py-32" style={{ background: "var(--gradient-warm)" }}>
+        <div className="container grid md:grid-cols-12 gap-12 md:gap-16 items-center">
+          <div className="md:col-span-6">
+            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-5">Beyond Tailoring</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-burgundy leading-[1.05] text-balance">
+              Stationery & toys, <em className="italic">all under one roof</em>.
+            </h2>
+            <div className="gold-rule my-7 max-w-[120px]" />
+            <p className="text-foreground/75 leading-relaxed text-base md:text-lg max-w-xl">
+              From school essentials to playful little gifts — we stock everything students and young children
+              need, right next to the tailoring counter. One quick stop for the whole family.
+            </p>
+
+            <div className="grid grid-cols-2 gap-4 mt-10 max-w-lg">
+              {[
+                { icon: BookOpen, title: "Notebooks & Files", desc: "Long, short, register, drawing books" },
+                { icon: Pencil, title: "Pens & Pencils", desc: "Ball pens, gel pens, pencils, sharpeners" },
+                { icon: Palette, title: "Art & Craft", desc: "Crayons, sketch pens, water colours" },
+                { icon: ToyBrick, title: "Kids' Toys", desc: "Soft toys, blocks, cars & small games" },
+              ].map((item) => (
+                <div key={item.title} className="bg-background/70 backdrop-blur-sm border border-border p-5">
+                  <item.icon className="w-6 h-6 text-gold mb-3" strokeWidth={1.25} />
+                  <h3 className="font-display text-lg text-burgundy leading-tight">{item.title}</h3>
+                  <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mt-8">
+              Saree fall · Bidding · Astar · Dhaaga · Sui · Sewing material — all available
+            </p>
+          </div>
+
+          <div className="md:col-span-6">
+            <div className="relative">
+              <img
+                src={stationeryToys}
+                alt="Notebooks, pens, pencils, crayons and small toys for children at Poonam Ladies Tailor & Stationary"
+                className="w-full h-auto shadow-[var(--shadow-elegant)] aspect-square object-cover"
+                loading="lazy"
+                width={1024}
+                height={1024}
+              />
+              <div className="absolute -bottom-4 -left-4 bg-burgundy text-primary-foreground px-5 py-3 text-xs uppercase tracking-[0.25em] hidden sm:block">
+                For school & home
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -414,7 +468,7 @@ const Index = () => {
 
             <div className="mt-8 overflow-hidden border border-border shadow-[var(--shadow-soft)]">
               <iframe
-                title="Poonam Ladies Tailor location on Google Maps"
+                title="Poonam Ladies Tailor & Stationary location on Google Maps"
                 src="https://www.google.com/maps?q=Poonam+ladies+tailor+%26+stationary,+Omkar+Nagar,+Santosh+Nagar,+Diva,+Thane,+Maharashtra+400612&output=embed"
                 width="100%"
                 height="260"
@@ -475,8 +529,8 @@ const Index = () => {
       <footer className="bg-burgundy-deep text-primary-foreground/80 py-12">
         <div className="container flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
-            <p className="font-display text-2xl text-primary-foreground">Poonam Ladies Tailor</p>
-            <p className="text-xs uppercase tracking-[0.3em] text-[hsl(var(--gold-soft))] mt-1">Bespoke since day one</p>
+            <p className="font-display text-2xl text-primary-foreground">Poonam Ladies Tailor & Stationary</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-[hsl(var(--gold-soft))] mt-1">Tailoring · Stationery · Toys</p>
           </div>
           <div className="flex items-center gap-5 text-sm">
             <a href="#" aria-label="Instagram" className="hover:text-[hsl(var(--gold-soft))] transition-colors"><Instagram className="w-5 h-5" strokeWidth={1.5} /></a>
