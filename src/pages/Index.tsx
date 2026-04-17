@@ -174,6 +174,38 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Owners */}
+      <section id="owners" className="py-24 md:py-32 bg-background">
+        <div className="container grid md:grid-cols-12 gap-12 md:gap-16 items-center">
+          <div className="md:col-span-6">
+            <div className="relative">
+              <img
+                src={shopOwners}
+                alt="Poonam ji and her husband — owners of Poonam Ladies Tailor & Stationary"
+                className="w-full h-auto shadow-[var(--shadow-elegant)] object-cover aspect-[4/5]"
+                loading="lazy"
+              />
+              <div className="absolute -bottom-4 -right-4 bg-[hsl(var(--gold))] text-[hsl(var(--burgundy-deep))] px-5 py-3 text-xs uppercase tracking-[0.25em] hidden sm:block">
+                The family behind it
+              </div>
+            </div>
+          </div>
+          <div className="md:col-span-6 md:pl-6">
+            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-5">Meet the Owners</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-burgundy leading-[1.05] text-balance">
+              Run with <em className="italic">love</em>, by our family.
+            </h2>
+            <div className="gold-rule my-7 max-w-[120px]" />
+            <p className="text-foreground/75 leading-relaxed text-base md:text-lg max-w-xl">
+              Poonam ji leads every stitch at the tailoring counter, while her husband looks after
+              the stationery and toys side of the shop. Together, they've built a small neighbourhood
+              shop that feels just like home — where customers are treated like family and every order,
+              big or small, gets the same warm attention.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Services */}
       <section id="services" className="py-24 md:py-32 bg-background">
         <div className="container">
