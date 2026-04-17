@@ -2,8 +2,19 @@ import { useState } from "react";
 import heroImg from "@/assets/hero-tailor.jpg";
 import craftImg from "@/assets/craft-detail.jpg";
 import flatlayImg from "@/assets/services-flatlay.jpg";
+import shopSign from "@/assets/shop-sign.png";
+import shopFront from "@/assets/shop-front.png";
+import workNeckline from "@/assets/work-neckline.png";
+import workBlouse from "@/assets/work-blouse.png";
 import { Scissors, Ruler, Sparkles, Phone, MapPin, Clock, Instagram, Mail } from "lucide-react";
 import { toast } from "sonner";
+
+const galleryImages = [
+  { src: workBlouse, alt: "Hand-crafted pink blouse with intricate gold patti work neckline" },
+  { src: workNeckline, alt: "Designer blouse neckline with golden lace stitched on the machine" },
+  { src: shopFront, alt: "Poonam Ladies Tailor shop front with stationery and bangles display" },
+  { src: shopSign, alt: "Poonam Tailor & Stationery — Ladies Specialist signboard" },
+];
 
 const services = [
   {
@@ -55,7 +66,7 @@ const Index = () => {
           <div className="hidden md:flex items-center gap-8 text-sm text-primary-foreground/85">
             <a href="#services" className="hover:text-primary-foreground transition-colors">Services</a>
             <a href="#about" className="hover:text-primary-foreground transition-colors">About</a>
-            <a href="#gallery" className="hover:text-primary-foreground transition-colors">Craft</a>
+            <a href="#work" className="hover:text-primary-foreground transition-colors">Our Work</a>
             <a href="#contact" className="hover:text-primary-foreground transition-colors">Contact</a>
           </div>
           <a
@@ -116,12 +127,12 @@ const Index = () => {
         <div className="container grid md:grid-cols-12 gap-12 md:gap-16 items-center">
           <div className="md:col-span-5 order-2 md:order-1">
             <img
-              src={craftImg}
-              alt="Skilled hands stitching gold zari embroidery on rich silk"
-              className="w-full h-auto shadow-[var(--shadow-elegant)]"
+              src={shopFront}
+              alt="Inside Poonam Ladies Tailor & Stationery shop with the owner at work"
+              className="w-full h-auto shadow-[var(--shadow-elegant)] object-cover aspect-[4/5]"
               loading="lazy"
-              width={1200}
-              height={1400}
+              width={1400}
+              height={1000}
             />
           </div>
           <div className="md:col-span-7 md:pl-8 order-1 md:order-2">
@@ -201,13 +212,49 @@ const Index = () => {
           </div>
           <div className="relative min-h-[60vh] overflow-hidden">
             <img
-              src={flatlayImg}
-              alt="Folded blouses, measuring tape and fabric swatches at the tailor's atelier"
+              src={workNeckline}
+              alt="Designer blouse neckline being stitched on the sewing machine with golden lace at Poonam Ladies Tailor"
               className="absolute inset-0 h-full w-full object-cover"
               loading="lazy"
               width={1400}
               height={1000}
             />
+          </div>
+        </div>
+      </section>
+
+      {/* Our Work — real photos */}
+      <section id="work" className="py-24 md:py-32 bg-background">
+        <div className="container">
+          <div className="max-w-2xl mb-12 md:mb-16">
+            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-5">Our Work</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-burgundy leading-[1.05] text-balance">
+              Real pieces from our <em className="italic">atelier</em>.
+            </h2>
+            <div className="gold-rule my-6 max-w-[120px]" />
+            <p className="text-foreground/70 leading-relaxed max-w-xl">
+              A glimpse of recent work and our shop — designer blouses, neckline patti, and the place where it all
+              comes together.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
+            {galleryImages.map((img, i) => (
+              <figure
+                key={i}
+                className={`group relative overflow-hidden bg-muted ${
+                  i === 0 ? "col-span-2 row-span-2 aspect-square md:aspect-auto" : "aspect-square"
+                }`}
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-burgundy-deep/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </figure>
+            ))}
           </div>
         </div>
       </section>
