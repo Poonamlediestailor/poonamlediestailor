@@ -6,13 +6,11 @@ import shopSign from "@/assets/shop-sign.png";
 import shopFront from "@/assets/shop-front.png";
 import workNeckline from "@/assets/work-neckline.png";
 import workBlouse from "@/assets/work-blouse.png";
-import trendBlouse1 from "@/assets/trend-blouse-1.jpg";
-import trendBlouse2 from "@/assets/trend-blouse-2.jpg";
-import trendBlouse3 from "@/assets/trend-blouse-3.jpg";
 import trendKurti1 from "@/assets/trend-kurti-1.jpg";
 import trendKurti2 from "@/assets/trend-kurti-2.jpg";
 import trendKurti3 from "@/assets/trend-kurti-3.jpg";
 import stationeryToys from "@/assets/stationery-toys.jpg";
+import shopOwners from "@/assets/shop-owners.jpg";
 import { Scissors, Ruler, Sparkles, Phone, MapPin, Clock, Instagram, Mail, Wand2, BookOpen, Pencil, Palette, ToyBrick } from "lucide-react";
 import { toast } from "sonner";
 
@@ -23,18 +21,11 @@ const galleryImages = [
   { src: shopSign, alt: "Poonam Tailor & Stationery — Ladies Specialist signboard" },
 ];
 
-const trendingDesigns = {
-  blouse: [
-    { src: trendBlouse1, title: "Emerald Mirror Work", tag: "Sweetheart neckline · Zardozi" },
-    { src: trendBlouse2, title: "Royal Bridal Velvet", tag: "Deep V back · Pearl & zari" },
-    { src: trendBlouse3, title: "Peach Floral Sequin", tag: "Boat neck · 3/4 sleeves" },
-  ],
-  kurti: [
-    { src: trendKurti1, title: "Royal Blue Anarkali", tag: "Gota patti yoke · Flared" },
-    { src: trendKurti2, title: "Mustard Block Print", tag: "Tassel neck · Palazzo set" },
-    { src: trendKurti3, title: "Dusty Pink A-line", tag: "Mandarin collar · Pearl work" },
-  ],
-};
+const trendingKurtis = [
+  { src: trendKurti1, title: "Royal Blue Anarkali", tag: "Gota patti yoke · Flared" },
+  { src: trendKurti2, title: "Mustard Block Print", tag: "Tassel neck · Palazzo set" },
+  { src: trendKurti3, title: "Dusty Pink A-line", tag: "Mandarin collar · Pearl work" },
+];
 
 const services = [
   {
@@ -61,7 +52,6 @@ const services = [
 
 const Index = () => {
   const [form, setForm] = useState({ name: "", phone: "", message: "" });
-  const [trendTab, setTrendTab] = useState<"blouse" | "kurti">("blouse");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -180,6 +170,38 @@ const Index = () => {
                 </div>
               ))}
             </dl>
+          </div>
+        </div>
+      </section>
+
+      {/* Owners */}
+      <section id="owners" className="py-24 md:py-32 bg-background">
+        <div className="container grid md:grid-cols-12 gap-12 md:gap-16 items-center">
+          <div className="md:col-span-6">
+            <div className="relative">
+              <img
+                src={shopOwners}
+                alt="Poonam ji and her husband — owners of Poonam Ladies Tailor & Stationary"
+                className="w-full h-auto shadow-[var(--shadow-elegant)] object-cover aspect-[4/5]"
+                loading="lazy"
+              />
+              <div className="absolute -bottom-4 -right-4 bg-[hsl(var(--gold))] text-[hsl(var(--burgundy-deep))] px-5 py-3 text-xs uppercase tracking-[0.25em] hidden sm:block">
+                The family behind it
+              </div>
+            </div>
+          </div>
+          <div className="md:col-span-6 md:pl-6">
+            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-5">Meet the Owners</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-burgundy leading-[1.05] text-balance">
+              Run with <em className="italic">love</em>, by our family.
+            </h2>
+            <div className="gold-rule my-7 max-w-[120px]" />
+            <p className="text-foreground/75 leading-relaxed text-base md:text-lg max-w-xl">
+              Poonam ji leads every stitch at the tailoring counter, while her husband looks after
+              the stationery and toys side of the shop. Together, they've built a small neighbourhood
+              shop that feels just like home — where customers are treated like family and every order,
+              big or small, gets the same warm attention.
+            </p>
           </div>
         </div>
       </section>
@@ -354,41 +376,19 @@ const Index = () => {
               </h2>
               <div className="gold-rule my-6 max-w-[120px]" />
               <p className="text-primary-foreground/75 max-w-xl leading-relaxed">
-                Browse the latest blouse and kurti silhouettes — pick a design you love and we'll stitch
+                Browse the latest kurti silhouettes — pick a design you love and we'll stitch
                 it for you in the fabric and fit of your choice.
               </p>
-            </div>
-
-            <div
-              role="tablist"
-              aria-label="Trending design category"
-              className="inline-flex p-1 border border-primary-foreground/20 self-start md:self-end"
-            >
-              {(["blouse", "kurti"] as const).map((t) => (
-                <button
-                  key={t}
-                  role="tab"
-                  aria-selected={trendTab === t}
-                  onClick={() => setTrendTab(t)}
-                  className={`px-5 py-2.5 text-xs uppercase tracking-[0.25em] transition-colors ${
-                    trendTab === t
-                      ? "bg-[hsl(var(--gold))] text-[hsl(var(--burgundy-deep))]"
-                      : "text-primary-foreground/70 hover:text-primary-foreground"
-                  }`}
-                >
-                  {t === "blouse" ? "Blouse" : "Kurti"}
-                </button>
-              ))}
             </div>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-            {trendingDesigns[trendTab].map((d) => (
+            {trendingKurtis.map((d) => (
               <article key={d.title} className="group">
                 <div className="relative overflow-hidden bg-[hsl(var(--cream))] aspect-[4/5]">
                   <img
                     src={d.src}
-                    alt={`Trending ${trendTab} design — ${d.title}: ${d.tag}`}
+                    alt={`Trending kurti design — ${d.title}: ${d.tag}`}
                     loading="lazy"
                     width={1024}
                     height={1280}
