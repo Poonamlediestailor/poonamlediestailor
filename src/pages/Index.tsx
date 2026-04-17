@@ -274,27 +274,50 @@ const Index = () => {
 
             <ul className="space-y-5 text-sm">
               <li className="flex items-start gap-4">
-                <MapPin className="w-5 h-5 text-gold mt-0.5" strokeWidth={1.5} />
+                <MapPin className="w-5 h-5 text-gold mt-0.5 shrink-0" strokeWidth={1.5} />
                 <div>
                   <p className="font-medium text-foreground">Visit the shop</p>
-                  <p className="text-muted-foreground">Main Market Road, Your City</p>
+                  <p className="text-muted-foreground">
+                    Omkar Nagar, Santosh Nagar,<br />
+                    Diva, Thane, Maharashtra 400612
+                  </p>
+                  <a
+                    href="https://maps.app.goo.gl/bwYrVjujFsYWxrus6"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-2 text-xs uppercase tracking-[0.2em] text-burgundy border-b border-[hsl(var(--gold))] pb-0.5 hover:text-[hsl(var(--gold))] transition-colors"
+                  >
+                    Get Directions →
+                  </a>
                 </div>
               </li>
               <li className="flex items-start gap-4">
-                <Phone className="w-5 h-5 text-gold mt-0.5" strokeWidth={1.5} />
+                <Phone className="w-5 h-5 text-gold mt-0.5 shrink-0" strokeWidth={1.5} />
                 <div>
                   <p className="font-medium text-foreground">Call or WhatsApp</p>
                   <p className="text-muted-foreground">+91 00000 00000</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
-                <Clock className="w-5 h-5 text-gold mt-0.5" strokeWidth={1.5} />
+                <Clock className="w-5 h-5 text-gold mt-0.5 shrink-0" strokeWidth={1.5} />
                 <div>
                   <p className="font-medium text-foreground">Open hours</p>
                   <p className="text-muted-foreground">Mon – Sat · 10:00 AM – 8:00 PM</p>
                 </div>
               </li>
             </ul>
+
+            <div className="mt-8 overflow-hidden border border-border shadow-[var(--shadow-soft)]">
+              <iframe
+                title="Poonam Ladies Tailor location on Google Maps"
+                src="https://www.google.com/maps?q=Poonam+ladies+tailor+%26+stationary,+Omkar+Nagar,+Santosh+Nagar,+Diva,+Thane,+Maharashtra+400612&output=embed"
+                width="100%"
+                height="260"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="block w-full border-0"
+              />
+            </div>
           </div>
 
           <form onSubmit={handleSubmit} className="bg-background p-8 md:p-10 shadow-[var(--shadow-soft)]">
