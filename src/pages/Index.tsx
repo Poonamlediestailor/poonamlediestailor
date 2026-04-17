@@ -86,8 +86,8 @@ const Index = () => {
           </a>
           <div className="hidden md:flex items-center gap-8 text-sm text-primary-foreground/85">
             <a href="#services" className="hover:text-primary-foreground transition-colors">Services</a>
+            <a href="#stationery" className="hover:text-primary-foreground transition-colors">Stationery</a>
             <a href="#trending" className="hover:text-primary-foreground transition-colors">Trending</a>
-            <a href="#work" className="hover:text-primary-foreground transition-colors">Our Work</a>
             <a href="#contact" className="hover:text-primary-foreground transition-colors">Contact</a>
           </div>
           <a
@@ -277,6 +277,58 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-burgundy-deep/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </figure>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stationery & Toys */}
+      <section id="stationery" className="py-24 md:py-32" style={{ background: "var(--gradient-warm)" }}>
+        <div className="container grid md:grid-cols-12 gap-12 md:gap-16 items-center">
+          <div className="md:col-span-6">
+            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-5">Beyond Tailoring</p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-burgundy leading-[1.05] text-balance">
+              Stationery & toys, <em className="italic">all under one roof</em>.
+            </h2>
+            <div className="gold-rule my-7 max-w-[120px]" />
+            <p className="text-foreground/75 leading-relaxed text-base md:text-lg max-w-xl">
+              From school essentials to playful little gifts — we stock everything students and young children
+              need, right next to the tailoring counter. One quick stop for the whole family.
+            </p>
+
+            <div className="grid grid-cols-2 gap-4 mt-10 max-w-lg">
+              {[
+                { icon: BookOpen, title: "Notebooks & Files", desc: "Long, short, register, drawing books" },
+                { icon: Pencil, title: "Pens & Pencils", desc: "Ball pens, gel pens, pencils, sharpeners" },
+                { icon: Palette, title: "Art & Craft", desc: "Crayons, sketch pens, water colours" },
+                { icon: ToyBrick, title: "Kids' Toys", desc: "Soft toys, blocks, cars & small games" },
+              ].map((item) => (
+                <div key={item.title} className="bg-background/70 backdrop-blur-sm border border-border p-5">
+                  <item.icon className="w-6 h-6 text-gold mb-3" strokeWidth={1.25} />
+                  <h3 className="font-display text-lg text-burgundy leading-tight">{item.title}</h3>
+                  <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mt-8">
+              Saree fall · Bidding · Astar · Dhaaga · Sui · Sewing material — all available
+            </p>
+          </div>
+
+          <div className="md:col-span-6">
+            <div className="relative">
+              <img
+                src={stationeryToys}
+                alt="Notebooks, pens, pencils, crayons and small toys for children at Poonam Ladies Tailor & Stationary"
+                className="w-full h-auto shadow-[var(--shadow-elegant)] aspect-square object-cover"
+                loading="lazy"
+                width={1024}
+                height={1024}
+              />
+              <div className="absolute -bottom-4 -left-4 bg-burgundy text-primary-foreground px-5 py-3 text-xs uppercase tracking-[0.25em] hidden sm:block">
+                For school & home
+              </div>
+            </div>
           </div>
         </div>
       </section>
