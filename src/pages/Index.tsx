@@ -318,7 +318,9 @@ const Index = () => {
                 className="block w-full border-0"
               />
             </div>
-          {/* Right column intentionally removed — form moves below on its own row */}
+          </div>
+
+          <form onSubmit={handleSubmit} className="bg-background p-8 md:p-10 shadow-[var(--shadow-soft)]">
             <h3 className="font-display text-2xl text-burgundy mb-6">Request a callback</h3>
             <div className="space-y-5">
               <div>
