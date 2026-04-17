@@ -6,7 +6,13 @@ import shopSign from "@/assets/shop-sign.png";
 import shopFront from "@/assets/shop-front.png";
 import workNeckline from "@/assets/work-neckline.png";
 import workBlouse from "@/assets/work-blouse.png";
-import { Scissors, Ruler, Sparkles, Phone, MapPin, Clock, Instagram, Mail } from "lucide-react";
+import trendBlouse1 from "@/assets/trend-blouse-1.jpg";
+import trendBlouse2 from "@/assets/trend-blouse-2.jpg";
+import trendBlouse3 from "@/assets/trend-blouse-3.jpg";
+import trendKurti1 from "@/assets/trend-kurti-1.jpg";
+import trendKurti2 from "@/assets/trend-kurti-2.jpg";
+import trendKurti3 from "@/assets/trend-kurti-3.jpg";
+import { Scissors, Ruler, Sparkles, Phone, MapPin, Clock, Instagram, Mail, Wand2 } from "lucide-react";
 import { toast } from "sonner";
 
 const galleryImages = [
@@ -15,6 +21,19 @@ const galleryImages = [
   { src: shopFront, alt: "Poonam Ladies Tailor shop front with stationery and bangles display" },
   { src: shopSign, alt: "Poonam Tailor & Stationery — Ladies Specialist signboard" },
 ];
+
+const trendingDesigns = {
+  blouse: [
+    { src: trendBlouse1, title: "Emerald Mirror Work", tag: "Sweetheart neckline · Zardozi" },
+    { src: trendBlouse2, title: "Royal Bridal Velvet", tag: "Deep V back · Pearl & zari" },
+    { src: trendBlouse3, title: "Peach Floral Sequin", tag: "Boat neck · 3/4 sleeves" },
+  ],
+  kurti: [
+    { src: trendKurti1, title: "Royal Blue Anarkali", tag: "Gota patti yoke · Flared" },
+    { src: trendKurti2, title: "Mustard Block Print", tag: "Tassel neck · Palazzo set" },
+    { src: trendKurti3, title: "Dusty Pink A-line", tag: "Mandarin collar · Pearl work" },
+  ],
+};
 
 const services = [
   {
