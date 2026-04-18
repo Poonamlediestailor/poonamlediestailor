@@ -139,7 +139,7 @@ const Index = () => {
       </section>
 
       {/* Intro / About */}
-      <section id="about" className="py-24 md:py-32" style={{ background: "var(--gradient-warm)" }}>
+      <section id="about" className="py-16 md:py-20" style={{ background: "var(--gradient-warm)" }}>
         <div className="container grid md:grid-cols-12 gap-12 md:gap-16 items-center">
           <div className="md:col-span-5 order-2 md:order-1">
             <img
