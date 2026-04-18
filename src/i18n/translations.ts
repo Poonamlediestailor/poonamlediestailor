@@ -339,6 +339,6 @@ export const translations = {
     },
     wa: { tooltip: "WhatsApp वर आमच्याशी चॅट करा" },
   },
-} as const;
+};
 
-export type Translation = typeof translations.en;
+export type Translation = (typeof translations)["en"];
