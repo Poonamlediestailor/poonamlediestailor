@@ -316,7 +316,7 @@ const Index = () => {
       </section>
 
       {/* Trending Designs — AI generated lookbook */}
-      <section id="trending" className="py-24 md:py-32 bg-burgundy-deep text-primary-foreground relative overflow-hidden">
+      <section id="trending" className="py-16 md:py-20 bg-burgundy-deep text-primary-foreground relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-30 pointer-events-none"
           style={{
