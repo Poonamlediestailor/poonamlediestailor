@@ -212,9 +212,9 @@ const Index = () => {
       {/* Services */}
       <section id="services" className="py-16 md:py-20 bg-background">
         <div className="container">
-          <div className="max-w-2xl mb-16">
-            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-5">Services</p>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-burgundy leading-[1.05] text-balance">
+          <div className="max-w-2xl mb-10 md:mb-12">
+            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-4">Services</p>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-burgundy leading-[1.05] text-balance">
               Tailoring, refined to your every measure.
             </h2>
           </div>
@@ -223,12 +223,12 @@ const Index = () => {
             {services.map((s) => (
               <article
                 key={s.title}
-                className="group bg-background p-8 md:p-10 hover:bg-[hsl(var(--cream))] transition-colors duration-500"
+                className="group bg-background p-6 md:p-7 hover:bg-[hsl(var(--cream))] transition-colors duration-500"
               >
-                <s.icon className="w-7 h-7 text-gold mb-8" strokeWidth={1.25} />
-                <h3 className="font-display text-2xl md:text-3xl text-burgundy mb-3">{s.title}</h3>
+                <s.icon className="w-6 h-6 text-gold mb-5" strokeWidth={1.25} />
+                <h3 className="font-display text-xl md:text-2xl text-burgundy mb-2">{s.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-                <div className="mt-8 h-px w-8 bg-[hsl(var(--gold))] group-hover:w-16 transition-all duration-500" />
+                <div className="mt-5 h-px w-8 bg-[hsl(var(--gold))] group-hover:w-16 transition-all duration-500" />
               </article>
             ))}
           </div>
