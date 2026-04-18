@@ -411,7 +411,17 @@ const Index = () => {
                 <Phone className="w-5 h-5 text-gold mt-0.5 shrink-0" strokeWidth={1.5} />
                 <div>
                   <p className="font-medium text-foreground">Call or WhatsApp</p>
-                  <p className="text-muted-foreground">+91 00000 00000</p>
+                  <a href="tel:+919653692414" className="text-muted-foreground hover:text-burgundy transition-colors block">
+                    +91 96536 92414
+                  </a>
+                  <a
+                    href="https://wa.me/919653692414"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-1 text-xs uppercase tracking-[0.2em] text-burgundy border-b border-[hsl(var(--gold))] pb-0.5 hover:text-[hsl(var(--gold))] transition-colors"
+                  >
+                    Chat on WhatsApp →
+                  </a>
                 </div>
               </li>
               <li className="flex items-start gap-4">
@@ -492,7 +502,7 @@ const Index = () => {
           <div className="flex items-center gap-5 text-sm">
             <a href="#" aria-label="Instagram" className="hover:text-[hsl(var(--gold-soft))] transition-colors"><Instagram className="w-5 h-5" strokeWidth={1.5} /></a>
             <a href="mailto:hello@poonamtailor.com" aria-label="Email" className="hover:text-[hsl(var(--gold-soft))] transition-colors"><Mail className="w-5 h-5" strokeWidth={1.5} /></a>
-            <a href="tel:+910000000000" aria-label="Phone" className="hover:text-[hsl(var(--gold-soft))] transition-colors"><Phone className="w-5 h-5" strokeWidth={1.5} /></a>
+            <a href="tel:+919653692414" aria-label="Phone" className="hover:text-[hsl(var(--gold-soft))] transition-colors"><Phone className="w-5 h-5" strokeWidth={1.5} /></a>
           </div>
           <p className="text-xs text-primary-foreground/60">© {new Date().getFullYear()} Poonam Ladies Tailor</p>
         </div>
