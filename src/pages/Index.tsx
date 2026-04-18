@@ -325,21 +325,18 @@ const Index = () => {
           }}
         />
         <div className="container relative">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-12 md:mb-16">
-            <div className="max-w-2xl">
-              <p className="text-xs uppercase tracking-[0.4em] text-[hsl(var(--gold-soft))] mb-5 flex items-center gap-2">
-                <Wand2 className="w-3.5 h-3.5" strokeWidth={1.5} />
-                Trending Now · AI Lookbook
-              </p>
-              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] text-balance">
-                This season's <em className="italic text-[hsl(var(--gold-soft))]">favourites</em>.
-              </h2>
-              <div className="gold-rule my-6 max-w-[120px]" />
-              <p className="text-primary-foreground/75 max-w-xl leading-relaxed">
-                Browse the latest kurti silhouettes — pick a design you love and we'll stitch
-                it for you in the fabric and fit of your choice.
-              </p>
-            </div>
+          <div className="max-w-2xl mb-10">
+            <p className="text-xs uppercase tracking-[0.4em] text-[hsl(var(--gold-soft))] mb-4 flex items-center gap-2">
+              <Wand2 className="w-3.5 h-3.5" strokeWidth={1.5} />
+              Trending Now · AI Lookbook
+            </p>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05] text-balance">
+              This season's <em className="italic text-[hsl(var(--gold-soft))]">favourites</em>.
+            </h2>
+            <div className="gold-rule my-5 max-w-[100px]" />
+            <p className="text-primary-foreground/75 max-w-xl leading-relaxed text-sm md:text-base">
+              Browse the latest kurti silhouettes — pick a design you love and we'll stitch it for you.
+            </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
@@ -379,16 +376,16 @@ const Index = () => {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="py-24 md:py-32 bg-cream">
-        <div className="container grid md:grid-cols-2 gap-12 md:gap-20">
+      <section id="contact" className="py-16 md:py-20 bg-cream">
+        <div className="container grid md:grid-cols-2 gap-10 md:gap-16">
           <div>
-            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-5">Visit Us</p>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-burgundy leading-[1.05] text-balance">
+            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-4">Visit Us</p>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-burgundy leading-[1.05] text-balance">
               Book your <em className="italic">fitting</em>.
             </h2>
-            <div className="gold-rule my-7 max-w-[120px]" />
-            <p className="text-foreground/75 leading-relaxed max-w-md mb-10">
-              Drop in for a measurement consultation or send us a note — we typically respond within a few hours.
+            <div className="gold-rule my-5 max-w-[100px]" />
+            <p className="text-foreground/75 leading-relaxed max-w-md mb-8 text-sm md:text-base">
+              Drop in for a measurement consultation or call us — we typically respond within a few hours.
             </p>
 
             <ul className="space-y-5 text-sm">
