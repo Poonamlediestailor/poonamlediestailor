@@ -179,9 +179,9 @@ const Index = () => {
       </section>
 
       {/* Owners */}
-      <section id="owners" className="py-24 md:py-32 bg-background">
-        <div className="container grid md:grid-cols-12 gap-12 md:gap-16 items-center">
-          <div className="md:col-span-6">
+      <section id="owners" className="py-16 md:py-20 bg-background">
+        <div className="container grid md:grid-cols-12 gap-10 md:gap-14 items-center">
+          <div className="md:col-span-5">
             <div className="relative">
               <img
                 src={shopOwners}
@@ -189,29 +189,28 @@ const Index = () => {
                 className="w-full h-auto shadow-[var(--shadow-elegant)] object-cover aspect-[4/5]"
                 loading="lazy"
               />
-              <div className="absolute -bottom-4 -right-4 bg-[hsl(var(--gold))] text-[hsl(var(--burgundy-deep))] px-5 py-3 text-xs uppercase tracking-[0.25em] hidden sm:block">
+              <div className="absolute -bottom-4 -right-4 bg-[hsl(var(--gold))] text-[hsl(var(--burgundy-deep))] px-4 py-2.5 text-[10px] uppercase tracking-[0.25em] hidden sm:block">
                 The family behind it
               </div>
             </div>
           </div>
-          <div className="md:col-span-6 md:pl-6">
-            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-5">Meet the Owners</p>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-burgundy leading-[1.05] text-balance">
+          <div className="md:col-span-7 md:pl-4">
+            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-4">Meet the Owners</p>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-burgundy leading-[1.05] text-balance">
               Run with <em className="italic">love</em>, by our family.
             </h2>
-            <div className="gold-rule my-7 max-w-[120px]" />
-            <p className="text-foreground/75 leading-relaxed text-base md:text-lg max-w-xl">
-              Poonam ji leads every stitch at the tailoring counter, while her husband looks after
-              the stationery and toys side of the shop. Together, they've built a small neighbourhood
-              shop that feels just like home — where customers are treated like family and every order,
-              big or small, gets the same warm attention.
+            <div className="gold-rule my-5 max-w-[100px]" />
+            <p className="text-foreground/75 leading-relaxed text-base max-w-xl">
+              Poonam ji leads every stitch at the tailoring counter, while her husband looks after the
+              stationery and toys side. Together they run a warm neighbourhood shop where every customer
+              feels like family.
             </p>
           </div>
         </div>
       </section>
 
       {/* Services */}
-      <section id="services" className="py-24 md:py-32 bg-background">
+      <section id="services" className="py-16 md:py-20 bg-background">
         <div className="container">
           <div className="max-w-2xl mb-16">
             <p className="text-xs uppercase tracking-[0.4em] text-gold mb-5">Services</p>
