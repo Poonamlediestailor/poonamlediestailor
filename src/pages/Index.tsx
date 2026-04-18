@@ -271,76 +271,25 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Stationery & Toys */}
-      <section id="stationery" className="py-24 md:py-32" style={{ background: "var(--gradient-warm)" }}>
-        <div className="container grid md:grid-cols-12 gap-12 md:gap-16 items-center">
-          <div className="md:col-span-6">
-            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-5">Beyond Tailoring</p>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-burgundy leading-[1.05] text-balance">
+      {/* Stationery & Toys (combined) */}
+      <section id="stationery" className="py-16 md:py-20" style={{ background: "var(--gradient-warm)" }}>
+        <div className="container">
+          <div className="max-w-2xl mb-10">
+            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-4">Beyond Tailoring</p>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-burgundy leading-[1.05] text-balance">
               Stationery & toys, <em className="italic">all under one roof</em>.
             </h2>
-            <div className="gold-rule my-7 max-w-[120px]" />
-            <p className="text-foreground/75 leading-relaxed text-base md:text-lg max-w-xl">
-              From school essentials to playful little gifts — we stock everything students and young children
-              need, right next to the tailoring counter. One quick stop for the whole family.
-            </p>
-
-            <div className="grid grid-cols-2 gap-4 mt-10 max-w-lg">
-              {[
-                { icon: BookOpen, title: "Notebooks & Files", desc: "Long, short, register, drawing books" },
-                { icon: Pencil, title: "Pens & Pencils", desc: "Ball pens, gel pens, pencils, sharpeners" },
-                { icon: Palette, title: "Art & Craft", desc: "Crayons, sketch pens, water colours" },
-                { icon: ToyBrick, title: "Kids' Toys", desc: "Soft toys, blocks, cars & small games" },
-              ].map((item) => (
-                <div key={item.title} className="bg-background/70 backdrop-blur-sm border border-border p-5">
-                  <item.icon className="w-6 h-6 text-gold mb-3" strokeWidth={1.25} />
-                  <h3 className="font-display text-lg text-burgundy leading-tight">{item.title}</h3>
-                  <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mt-8">
-              Saree fall · Bidding · Astar · Dhaaga · Sui · Sewing material — all available
+            <div className="gold-rule my-5 max-w-[100px]" />
+            <p className="text-foreground/75 leading-relaxed text-sm md:text-base max-w-xl">
+              Notebooks, pens, pencils and toys — quality essentials at fair prices, available right at the counter
+              alongside saree fall, astar, dhaaga, sui & sewing material.
             </p>
           </div>
 
-          <div className="md:col-span-6">
-            <div className="relative">
-              <img
-                src={stationeryToys}
-                alt="Notebooks, pens, pencils, crayons and small toys for children at Poonam Ladies Tailor & Stationary"
-                className="w-full h-auto shadow-[var(--shadow-elegant)] aspect-square object-cover"
-                loading="lazy"
-                width={1024}
-                height={1024}
-              />
-              <div className="absolute -bottom-4 -left-4 bg-burgundy text-primary-foreground px-5 py-3 text-xs uppercase tracking-[0.25em] hidden sm:block">
-                For school & home
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stationery Products grid */}
-      <section id="stationery-products" className="py-24 md:py-32 bg-background">
-        <div className="container">
-          <div className="max-w-2xl mb-12 md:mb-16">
-            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-5">Stationery Products</p>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-burgundy leading-[1.05] text-balance">
-              Everything for <em className="italic">school</em> & little hands.
-            </h2>
-            <div className="gold-rule my-6 max-w-[120px]" />
-            <p className="text-foreground/70 leading-relaxed max-w-xl">
-              Notebooks, pens, pencils and toys — quality essentials, fair prices, available right at the counter.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
             {[
-              { src: stationeryNotebooks, title: "Notebooks", desc: "Long, short, register & drawing books", icon: BookOpen },
-              { src: stationeryPens, title: "Pens", desc: "Ball pens, gel pens & ink pens", icon: Pencil },
+              { src: stationeryNotebooks, title: "Notebooks", desc: "Long, short, register & drawing", icon: BookOpen },
+              { src: stationeryPens, title: "Pens", desc: "Ball, gel & ink pens", icon: Pencil },
               { src: stationeryPencils, title: "Pencils", desc: "Pencils, erasers & sharpeners", icon: Palette },
               { src: stationeryToysKids, title: "Kids' Toys", desc: "Soft toys, blocks & little cars", icon: ToyBrick },
             ].map((p) => (
@@ -355,10 +304,10 @@ const Index = () => {
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
                   />
                 </div>
-                <div className="pt-5">
-                  <p.icon className="w-5 h-5 text-gold mb-2" strokeWidth={1.25} />
-                  <h3 className="font-display text-xl md:text-2xl text-burgundy leading-tight">{p.title}</h3>
-                  <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">{p.desc}</p>
+                <div className="pt-4">
+                  <p.icon className="w-5 h-5 text-gold mb-1.5" strokeWidth={1.25} />
+                  <h3 className="font-display text-lg md:text-xl text-burgundy leading-tight">{p.title}</h3>
+                  <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{p.desc}</p>
                 </div>
               </article>
             ))}
