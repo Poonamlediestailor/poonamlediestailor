@@ -1,7 +1,5 @@
 import { useState } from "react";
 import heroImg from "@/assets/hero-tailor.jpg";
-import craftImg from "@/assets/craft-detail.jpg";
-import flatlayImg from "@/assets/services-flatlay.jpg";
 import trendBlouse1 from "@/assets/trend-blouse-1.jpg";
 import trendBlouse2 from "@/assets/trend-blouse-2.jpg";
 import trendBlouse3 from "@/assets/trend-blouse-3.jpg";
@@ -9,7 +7,6 @@ import trendBlouse4 from "@/assets/trend-blouse-4.jpg";
 import trendKurti1 from "@/assets/trend-kurti-1.jpg";
 import trendKurti2 from "@/assets/trend-kurti-2.jpg";
 import trendKurti3 from "@/assets/trend-kurti-3.jpg";
-import stationeryToys from "@/assets/stationery-toys.jpg";
 import stationeryNotebooks from "@/assets/stationery-notebooks.jpg";
 import stationeryPens from "@/assets/stationery-pens.jpg";
 import stationeryPencils from "@/assets/stationery-pencils.jpg";
@@ -17,6 +14,9 @@ import stationeryToysKids from "@/assets/stationery-toys-kids.jpg";
 import shopOwners from "@/assets/shop-owners.jpg";
 import { Scissors, Ruler, Sparkles, Phone, MapPin, Clock, Instagram, Mail, Wand2, BookOpen, Pencil, Palette, ToyBrick } from "lucide-react";
 import { toast } from "sonner";
+import { useLanguage } from "@/i18n/LanguageContext";
+import LanguageToggle from "@/components/LanguageToggle";
+import WhatsAppFab from "@/components/WhatsAppFab";
 
 const galleryImages = [
   { src: trendBlouse1, alt: "AI-designed magenta pink silk blouse with golden zari and gota patti embroidery" },
@@ -25,45 +25,21 @@ const galleryImages = [
   { src: trendBlouse4, alt: "AI-designed peach blouse with dabka and stone embroidery on princess cut" },
 ];
 
-const trendingKurtis = [
-  { src: trendKurti1, title: "Royal Blue Anarkali", tag: "Gota patti yoke · Flared" },
-  { src: trendKurti2, title: "Mustard Block Print", tag: "Tassel neck · Palazzo set" },
-  { src: trendKurti3, title: "Dusty Pink A-line", tag: "Mandarin collar · Pearl work" },
-];
+const trendingKurtiImages = [trendKurti1, trendKurti2, trendKurti3];
 
-const services = [
-  {
-    icon: Sparkles,
-    title: "Bridal & Festive",
-    desc: "Lehengas, bridal blouses and reception wear crafted with hand embroidery and fine finishing.",
-  },
-  {
-    icon: Scissors,
-    title: "Blouse Designing",
-    desc: "Designer blouses, princess cut, boat neck, backless and all latest patterns — perfect fit guaranteed.",
-  },
-  {
-    icon: Ruler,
-    title: "Salwar & Kurti",
-    desc: "Anarkali, straight cut, palazzo sets and everyday kurtis stitched to your exact measurements.",
-  },
-  {
-    icon: Sparkles,
-    title: "Alterations",
-    desc: "Precise alterations, resizing and fall-pico for sarees, dresses and ready-made garments.",
-  },
-];
+const serviceIcons = [Sparkles, Scissors, Ruler, Sparkles];
 
 const Index = () => {
+  const { t } = useLanguage();
   const [form, setForm] = useState({ name: "", phone: "", message: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.phone) {
-      toast.error("Please share your name and phone number.");
+      toast.error(t.contact.toastError);
       return;
     }
-    toast.success("Thank you! We'll call you back shortly.");
+    toast.success(t.contact.toastOk);
     setForm({ name: "", phone: "", message: "" });
   };
 
@@ -75,21 +51,24 @@ const Index = () => {
           <a href="#home" className="flex items-center gap-2 text-primary-foreground">
             <span className="font-display text-xl md:text-2xl tracking-wide">Poonam</span>
             <span className="hidden sm:inline text-[10px] uppercase tracking-[0.3em] text-primary-foreground/70">
-              Ladies Tailor & Stationary
+              {t.nav.brand}
             </span>
           </a>
           <div className="hidden md:flex items-center gap-8 text-sm text-primary-foreground/85">
-            <a href="#services" className="hover:text-primary-foreground transition-colors">Services</a>
-            <a href="#stationery" className="hover:text-primary-foreground transition-colors">Stationery</a>
-            <a href="#trending" className="hover:text-primary-foreground transition-colors">Trending</a>
-            <a href="#contact" className="hover:text-primary-foreground transition-colors">Contact</a>
+            <a href="#services" className="hover:text-primary-foreground transition-colors">{t.nav.services}</a>
+            <a href="#stationery" className="hover:text-primary-foreground transition-colors">{t.nav.stationery}</a>
+            <a href="#trending" className="hover:text-primary-foreground transition-colors">{t.nav.trending}</a>
+            <a href="#contact" className="hover:text-primary-foreground transition-colors">{t.nav.contact}</a>
           </div>
-          <a
-            href="#contact"
-            className="text-xs md:text-sm uppercase tracking-[0.2em] border border-primary-foreground/40 text-primary-foreground px-3 py-2 md:px-4 md:py-2.5 hover:bg-primary-foreground hover:text-primary transition-colors"
-          >
-            Book Fitting
-          </a>
+          <div className="flex items-center gap-2 md:gap-3">
+            <LanguageToggle variant="light" />
+            <a
+              href="#contact"
+              className="text-xs md:text-sm uppercase tracking-[0.2em] border border-primary-foreground/40 text-primary-foreground px-3 py-2 md:px-4 md:py-2.5 hover:bg-primary-foreground hover:text-primary transition-colors"
+            >
+              {t.nav.bookFitting}
+            </a>
+          </div>
         </nav>
       </header>
 
@@ -108,30 +87,29 @@ const Index = () => {
         <div className="container relative z-10 flex min-h-[100svh] flex-col justify-end pb-20 pt-32">
           <div className="max-w-2xl animate-fade-up">
             <p className="text-xs uppercase tracking-[0.4em] text-[hsl(var(--gold-soft))] mb-5">
-              Tailoring · Stationery · Toys
+              {t.hero.eyebrow}
             </p>
             <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-primary-foreground leading-[0.95] text-balance">
-              Poonam<br />
-              <span className="italic text-[hsl(var(--gold-soft))]">Ladies Tailor</span>
-              <span className="block text-2xl sm:text-3xl md:text-4xl mt-2 text-primary-foreground/85 not-italic tracking-wide">& Stationary</span>
+              {t.hero.title1}<br />
+              <span className="italic text-[hsl(var(--gold-soft))]">{t.hero.title2}</span>
+              <span className="block text-2xl sm:text-3xl md:text-4xl mt-2 text-primary-foreground/85 not-italic tracking-wide">{t.hero.title3}</span>
             </h1>
             <div className="gold-rule my-6 max-w-xs" />
             <p className="text-base md:text-lg text-primary-foreground/85 max-w-xl leading-relaxed">
-              Bespoke ladies stitching — bridal lehengas, designer blouses, salwar suits and kurtis. Plus a full
-              stationery shop with notebooks, pens, pencils and toys for the little ones.
+              {t.hero.desc}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href="#contact"
                 className="bg-[hsl(var(--gold))] text-[hsl(var(--burgundy-deep))] text-sm uppercase tracking-[0.2em] px-6 py-3.5 hover:bg-[hsl(var(--gold-soft))] transition-colors"
               >
-                Book a Fitting
+                {t.hero.cta1}
               </a>
               <a
                 href="#services"
                 className="border border-primary-foreground/50 text-primary-foreground text-sm uppercase tracking-[0.2em] px-6 py-3.5 hover:bg-primary-foreground/10 transition-colors"
               >
-                Our Services
+                {t.hero.cta2}
               </a>
             </div>
           </div>
@@ -152,22 +130,16 @@ const Index = () => {
             />
           </div>
           <div className="md:col-span-7 md:pl-8 order-1 md:order-2">
-            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-5">Our Atelier</p>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-burgundy leading-[1.05] text-balance">
-              Where every stitch <em className="italic">tells</em> a story.
+            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-5">{t.about.eyebrow}</p>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-burgundy leading-[1.05] text-balance">
+              {t.about.title1}<em className="italic">{t.about.titleEm}</em>{t.about.title2}
             </h2>
-            <div className="gold-rule my-7 max-w-[120px]" />
+            <div className="gold-rule my-6 max-w-[100px]" />
             <p className="text-foreground/75 leading-relaxed text-base md:text-lg max-w-xl">
-              For years, Poonam Ladies Tailor & Stationary has been the trusted neighbourhood shop — expert
-              ladies stitching for women who value craftsmanship and a flawless fit, alongside a friendly
-              stationery counter stocked with everything students and little kids need.
+              {t.about.desc}
             </p>
             <dl className="grid grid-cols-3 gap-6 mt-10 max-w-md">
-              {[
-                { k: "15+", v: "Years of Craft" },
-                { k: "5,000+", v: "Happy Clients" },
-                { k: "100%", v: "Custom Fit" },
-              ].map((s) => (
+              {t.about.stats.map((s) => (
                 <div key={s.v}>
                   <dt className="font-display text-3xl md:text-4xl text-burgundy">{s.k}</dt>
                   <dd className="text-xs uppercase tracking-[0.15em] text-muted-foreground mt-1">{s.v}</dd>
@@ -190,20 +162,18 @@ const Index = () => {
                 loading="lazy"
               />
               <div className="absolute -bottom-4 -right-4 bg-[hsl(var(--gold))] text-[hsl(var(--burgundy-deep))] px-4 py-2.5 text-[10px] uppercase tracking-[0.25em] hidden sm:block">
-                The family behind it
+                {t.owners.badge}
               </div>
             </div>
           </div>
           <div className="md:col-span-7 md:pl-4">
-            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-4">Meet the Owners</p>
+            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-4">{t.owners.eyebrow}</p>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-burgundy leading-[1.05] text-balance">
-              Run with <em className="italic">love</em>, by our family.
+              {t.owners.title1}<em className="italic">{t.owners.titleEm}</em>{t.owners.title2}
             </h2>
             <div className="gold-rule my-5 max-w-[100px]" />
             <p className="text-foreground/75 leading-relaxed text-base max-w-xl">
-              Poonam ji leads every stitch at the tailoring counter, while her husband looks after the
-              stationery and toys side. Together they run a warm neighbourhood shop where every customer
-              feels like family.
+              {t.owners.desc}
             </p>
           </div>
         </div>
@@ -213,30 +183,30 @@ const Index = () => {
       <section id="services" className="py-16 md:py-20 bg-background">
         <div className="container">
           <div className="max-w-2xl mb-10 md:mb-12">
-            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-4">Services</p>
+            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-4">{t.services.eyebrow}</p>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-burgundy leading-[1.05] text-balance">
-              Tailoring, refined to your every measure.
+              {t.services.title}
             </h2>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
-            {services.map((s) => (
-              <article
-                key={s.title}
-                className="group bg-background p-6 md:p-7 hover:bg-[hsl(var(--cream))] transition-colors duration-500"
-              >
-                <s.icon className="w-6 h-6 text-gold mb-5" strokeWidth={1.25} />
-                <h3 className="font-display text-xl md:text-2xl text-burgundy mb-2">{s.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-                <div className="mt-5 h-px w-8 bg-[hsl(var(--gold))] group-hover:w-16 transition-all duration-500" />
-              </article>
-            ))}
+            {t.services.items.map((s, i) => {
+              const Icon = serviceIcons[i];
+              return (
+                <article
+                  key={s.title}
+                  className="group bg-background p-6 md:p-7 hover:bg-[hsl(var(--cream))] transition-colors duration-500"
+                >
+                  <Icon className="w-6 h-6 text-gold mb-5" strokeWidth={1.25} />
+                  <h3 className="font-display text-xl md:text-2xl text-burgundy mb-2">{s.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+                  <div className="mt-5 h-px w-8 bg-[hsl(var(--gold))] group-hover:w-16 transition-all duration-500" />
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
-
-      {/* Gallery / craft strip removed for compactness */}
-
 
       {/* Blouse Designs — AI generated lookbook */}
       <section id="work" className="py-16 md:py-20 bg-background">
@@ -244,14 +214,14 @@ const Index = () => {
           <div className="max-w-2xl mb-10">
             <p className="text-xs uppercase tracking-[0.4em] text-gold mb-4 flex items-center gap-2">
               <Wand2 className="w-3.5 h-3.5" strokeWidth={1.5} />
-              Blouse Designs · AI Lookbook
+              {t.work.eyebrow}
             </p>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-burgundy leading-[1.05] text-balance">
-              Designer <em className="italic">blouses</em>, stitched to your fit.
+              {t.work.title1}<em className="italic">{t.work.titleEm}</em>{t.work.title2}
             </h2>
             <div className="gold-rule my-5 max-w-[100px]" />
             <p className="text-foreground/70 leading-relaxed max-w-xl text-sm md:text-base">
-              Pick a design you love and we'll tailor it for you in your chosen fabric and a flawless fit.
+              {t.work.desc}
             </p>
           </div>
 
@@ -275,42 +245,44 @@ const Index = () => {
       <section id="stationery" className="py-16 md:py-20" style={{ background: "var(--gradient-warm)" }}>
         <div className="container">
           <div className="max-w-2xl mb-10">
-            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-4">Beyond Tailoring</p>
+            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-4">{t.stationery.eyebrow}</p>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-burgundy leading-[1.05] text-balance">
-              Stationery & toys, <em className="italic">all under one roof</em>.
+              {t.stationery.title1}<em className="italic">{t.stationery.titleEm}</em>{t.stationery.title2}
             </h2>
             <div className="gold-rule my-5 max-w-[100px]" />
             <p className="text-foreground/75 leading-relaxed text-sm md:text-base max-w-xl">
-              Notebooks, pens, pencils and toys — quality essentials at fair prices, available right at the counter
-              alongside saree fall, astar, dhaaga, sui & sewing material.
+              {t.stationery.desc}
             </p>
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
             {[
-              { src: stationeryNotebooks, title: "Notebooks", desc: "Long, short, register & drawing", icon: BookOpen },
-              { src: stationeryPens, title: "Pens", desc: "Ball, gel & ink pens", icon: Pencil },
-              { src: stationeryPencils, title: "Pencils", desc: "Pencils, erasers & sharpeners", icon: Palette },
-              { src: stationeryToysKids, title: "Kids' Toys", desc: "Soft toys, blocks & little cars", icon: ToyBrick },
-            ].map((p) => (
-              <article key={p.title} className="group">
-                <div className="relative overflow-hidden bg-[hsl(var(--cream))] aspect-square">
-                  <img
-                    src={p.src}
-                    alt={`${p.title} for school and home — ${p.desc}`}
-                    loading="lazy"
-                    width={1024}
-                    height={1024}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
-                  />
-                </div>
-                <div className="pt-4">
-                  <p.icon className="w-5 h-5 text-gold mb-1.5" strokeWidth={1.25} />
-                  <h3 className="font-display text-lg md:text-xl text-burgundy leading-tight">{p.title}</h3>
-                  <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{p.desc}</p>
-                </div>
-              </article>
-            ))}
+              { src: stationeryNotebooks, icon: BookOpen },
+              { src: stationeryPens, icon: Pencil },
+              { src: stationeryPencils, icon: Palette },
+              { src: stationeryToysKids, icon: ToyBrick },
+            ].map((p, i) => {
+              const item = t.stationery.items[i];
+              return (
+                <article key={item.title} className="group">
+                  <div className="relative overflow-hidden bg-[hsl(var(--cream))] aspect-square">
+                    <img
+                      src={p.src}
+                      alt={`${item.title} — ${item.desc}`}
+                      loading="lazy"
+                      width={1024}
+                      height={1024}
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                    />
+                  </div>
+                  <div className="pt-4">
+                    <p.icon className="w-5 h-5 text-gold mb-1.5" strokeWidth={1.25} />
+                    <h3 className="font-display text-lg md:text-xl text-burgundy leading-tight">{item.title}</h3>
+                    <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{item.desc}</p>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -328,31 +300,31 @@ const Index = () => {
           <div className="max-w-2xl mb-10">
             <p className="text-xs uppercase tracking-[0.4em] text-[hsl(var(--gold-soft))] mb-4 flex items-center gap-2">
               <Wand2 className="w-3.5 h-3.5" strokeWidth={1.5} />
-              Trending Now · AI Lookbook
+              {t.trending.eyebrow}
             </p>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05] text-balance">
-              This season's <em className="italic text-[hsl(var(--gold-soft))]">favourites</em>.
+              {t.trending.title1}<em className="italic text-[hsl(var(--gold-soft))]">{t.trending.titleEm}</em>{t.trending.title2}
             </h2>
             <div className="gold-rule my-5 max-w-[100px]" />
             <p className="text-primary-foreground/75 max-w-xl leading-relaxed text-sm md:text-base">
-              Browse the latest kurti silhouettes — pick a design you love and we'll stitch it for you.
+              {t.trending.desc}
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-            {trendingKurtis.map((d) => (
+            {t.trending.items.map((d, i) => (
               <article key={d.title} className="group">
                 <div className="relative overflow-hidden bg-[hsl(var(--cream))] aspect-[4/5]">
                   <img
-                    src={d.src}
-                    alt={`Trending kurti design — ${d.title}: ${d.tag}`}
+                    src={trendingKurtiImages[i]}
+                    alt={`${d.title}: ${d.tag}`}
                     loading="lazy"
                     width={1024}
                     height={1280}
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                   />
                   <div className="absolute top-3 left-3 bg-[hsl(var(--burgundy-deep))]/80 backdrop-blur-sm text-[10px] uppercase tracking-[0.2em] text-[hsl(var(--gold-soft))] px-2.5 py-1">
-                    AI Design
+                    {t.trending.aiBadge}
                   </div>
                 </div>
                 <div className="pt-5">
@@ -362,7 +334,7 @@ const Index = () => {
                     href="#contact"
                     className="inline-block mt-4 text-xs uppercase tracking-[0.2em] text-[hsl(var(--gold-soft))] border-b border-[hsl(var(--gold))] pb-0.5 hover:text-primary-foreground transition-colors"
                   >
-                    Stitch this design →
+                    {t.trending.stitch}
                   </a>
                 </div>
               </article>
@@ -370,7 +342,7 @@ const Index = () => {
           </div>
 
           <p className="text-xs text-primary-foreground/45 mt-10 max-w-xl">
-            * Designs shown are AI-generated style references. Final stitching, fabric and finishing are crafted in our atelier.
+            {t.trending.footnote}
           </p>
         </div>
       </section>
@@ -379,38 +351,35 @@ const Index = () => {
       <section id="contact" className="py-16 md:py-20 bg-cream">
         <div className="container grid md:grid-cols-2 gap-10 md:gap-16">
           <div>
-            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-4">Visit Us</p>
+            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-4">{t.contact.eyebrow}</p>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-burgundy leading-[1.05] text-balance">
-              Book your <em className="italic">fitting</em>.
+              {t.contact.title1}<em className="italic">{t.contact.titleEm}</em>{t.contact.title2}
             </h2>
             <div className="gold-rule my-5 max-w-[100px]" />
             <p className="text-foreground/75 leading-relaxed max-w-md mb-8 text-sm md:text-base">
-              Drop in for a measurement consultation or call us — we typically respond within a few hours.
+              {t.contact.desc}
             </p>
 
             <ul className="space-y-5 text-sm">
               <li className="flex items-start gap-4">
                 <MapPin className="w-5 h-5 text-gold mt-0.5 shrink-0" strokeWidth={1.5} />
                 <div>
-                  <p className="font-medium text-foreground">Visit the shop</p>
-                  <p className="text-muted-foreground">
-                    Omkar Nagar, Santosh Nagar,<br />
-                    Diva, Thane, Maharashtra 400612
-                  </p>
+                  <p className="font-medium text-foreground">{t.contact.visit}</p>
+                  <p className="text-muted-foreground whitespace-pre-line">{t.contact.address}</p>
                   <a
                     href="https://maps.app.goo.gl/bwYrVjujFsYWxrus6"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block mt-2 text-xs uppercase tracking-[0.2em] text-burgundy border-b border-[hsl(var(--gold))] pb-0.5 hover:text-[hsl(var(--gold))] transition-colors"
                   >
-                    Get Directions →
+                    {t.contact.directions}
                   </a>
                 </div>
               </li>
               <li className="flex items-start gap-4">
                 <Phone className="w-5 h-5 text-gold mt-0.5 shrink-0" strokeWidth={1.5} />
                 <div>
-                  <p className="font-medium text-foreground">Call or WhatsApp</p>
+                  <p className="font-medium text-foreground">{t.contact.callWa}</p>
                   <a href="tel:+919653692414" className="text-muted-foreground hover:text-burgundy transition-colors block">
                     +91 96536 92414
                   </a>
@@ -420,15 +389,15 @@ const Index = () => {
                     rel="noopener noreferrer"
                     className="inline-block mt-1 text-xs uppercase tracking-[0.2em] text-burgundy border-b border-[hsl(var(--gold))] pb-0.5 hover:text-[hsl(var(--gold))] transition-colors"
                   >
-                    Chat on WhatsApp →
+                    {t.contact.whatsapp}
                   </a>
                 </div>
               </li>
               <li className="flex items-start gap-4">
                 <Clock className="w-5 h-5 text-gold mt-0.5 shrink-0" strokeWidth={1.5} />
                 <div>
-                  <p className="font-medium text-foreground">Open hours</p>
-                  <p className="text-muted-foreground">Mon – Sat · 10:00 AM – 8:00 PM</p>
+                  <p className="font-medium text-foreground">{t.contact.hours}</p>
+                  <p className="text-muted-foreground">{t.contact.hoursVal}</p>
                 </div>
               </li>
             </ul>
@@ -446,21 +415,21 @@ const Index = () => {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="bg-background p-8 md:p-10 shadow-[var(--shadow-soft)]">
-            <h3 className="font-display text-2xl text-burgundy mb-6">Request a callback</h3>
+          <form onSubmit={handleSubmit} className="bg-background p-8 md:p-10 shadow-[var(--shadow-soft)] h-fit">
+            <h3 className="font-display text-2xl text-burgundy mb-6">{t.contact.formTitle}</h3>
             <div className="space-y-5">
               <div>
-                <label className="text-xs uppercase tracking-[0.2em] text-muted-foreground" htmlFor="name">Name</label>
+                <label className="text-xs uppercase tracking-[0.2em] text-muted-foreground" htmlFor="name">{t.contact.name}</label>
                 <input
                   id="name"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   className="mt-2 w-full bg-transparent border-b border-border focus:border-[hsl(var(--gold))] outline-none py-2 text-foreground"
-                  placeholder="Your full name"
+                  placeholder={t.contact.namePh}
                 />
               </div>
               <div>
-                <label className="text-xs uppercase tracking-[0.2em] text-muted-foreground" htmlFor="phone">Phone</label>
+                <label className="text-xs uppercase tracking-[0.2em] text-muted-foreground" htmlFor="phone">{t.contact.phone}</label>
                 <input
                   id="phone"
                   type="tel"
@@ -471,21 +440,21 @@ const Index = () => {
                 />
               </div>
               <div>
-                <label className="text-xs uppercase tracking-[0.2em] text-muted-foreground" htmlFor="message">What you need</label>
+                <label className="text-xs uppercase tracking-[0.2em] text-muted-foreground" htmlFor="message">{t.contact.message}</label>
                 <textarea
                   id="message"
                   rows={3}
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   className="mt-2 w-full bg-transparent border-b border-border focus:border-[hsl(var(--gold))] outline-none py-2 text-foreground resize-none"
-                  placeholder="Bridal blouse, alteration, etc."
+                  placeholder={t.contact.messagePh}
                 />
               </div>
               <button
                 type="submit"
                 className="w-full mt-2 bg-burgundy text-primary-foreground text-sm uppercase tracking-[0.2em] py-3.5 hover:bg-[hsl(var(--burgundy-deep))] transition-colors"
               >
-                Send Request
+                {t.contact.submit}
               </button>
             </div>
           </form>
@@ -496,17 +465,19 @@ const Index = () => {
       <footer className="bg-burgundy-deep text-primary-foreground/80 py-12">
         <div className="container flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
-            <p className="font-display text-2xl text-primary-foreground">Poonam Ladies Tailor & Stationary</p>
-            <p className="text-xs uppercase tracking-[0.3em] text-[hsl(var(--gold-soft))] mt-1">Tailoring · Stationery · Toys</p>
+            <p className="font-display text-2xl text-primary-foreground">Poonam {t.nav.brand}</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-[hsl(var(--gold-soft))] mt-1">{t.footer.tagline}</p>
           </div>
           <div className="flex items-center gap-5 text-sm">
             <a href="#" aria-label="Instagram" className="hover:text-[hsl(var(--gold-soft))] transition-colors"><Instagram className="w-5 h-5" strokeWidth={1.5} /></a>
             <a href="mailto:hello@poonamtailor.com" aria-label="Email" className="hover:text-[hsl(var(--gold-soft))] transition-colors"><Mail className="w-5 h-5" strokeWidth={1.5} /></a>
             <a href="tel:+919653692414" aria-label="Phone" className="hover:text-[hsl(var(--gold-soft))] transition-colors"><Phone className="w-5 h-5" strokeWidth={1.5} /></a>
           </div>
-          <p className="text-xs text-primary-foreground/60">© {new Date().getFullYear()} Poonam Ladies Tailor</p>
+          <p className="text-xs text-primary-foreground/60">© {new Date().getFullYear()} {t.footer.copyright}</p>
         </div>
       </footer>
+
+      <WhatsAppFab />
     </div>
   );
 };
