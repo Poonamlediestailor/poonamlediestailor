@@ -239,31 +239,25 @@ const Index = () => {
 
 
       {/* Blouse Designs — AI generated lookbook */}
-      <section id="work" className="py-24 md:py-32 bg-background">
+      <section id="work" className="py-16 md:py-20 bg-background">
         <div className="container">
-          <div className="max-w-2xl mb-12 md:mb-16">
-            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-5 flex items-center gap-2">
+          <div className="max-w-2xl mb-10">
+            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-4 flex items-center gap-2">
               <Wand2 className="w-3.5 h-3.5" strokeWidth={1.5} />
               Blouse Designs · AI Lookbook
             </p>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-burgundy leading-[1.05] text-balance">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-burgundy leading-[1.05] text-balance">
               Designer <em className="italic">blouses</em>, stitched to your fit.
             </h2>
-            <div className="gold-rule my-6 max-w-[120px]" />
-            <p className="text-foreground/70 leading-relaxed max-w-xl">
-              Pick a design you love — bridal, party-wear or everyday — and we'll tailor it for you in your
-              chosen fabric and a flawless fit.
+            <div className="gold-rule my-5 max-w-[100px]" />
+            <p className="text-foreground/70 leading-relaxed max-w-xl text-sm md:text-base">
+              Pick a design you love and we'll tailor it for you in your chosen fabric and a flawless fit.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {galleryImages.map((img, i) => (
-              <figure
-                key={i}
-                className={`group relative overflow-hidden bg-muted ${
-                  i === 0 ? "col-span-2 row-span-2 aspect-square md:aspect-auto" : "aspect-square"
-                }`}
-              >
+              <figure key={i} className="group relative overflow-hidden bg-muted aspect-square">
                 <img
                   src={img.src}
                   alt={img.alt}
