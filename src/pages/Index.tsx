@@ -235,40 +235,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Gallery / craft strip */}
-      <section id="gallery" className="relative">
-        <div className="grid md:grid-cols-2">
-          <div className="relative min-h-[60vh] bg-burgundy-deep p-10 md:p-16 lg:p-20 flex flex-col justify-center text-primary-foreground">
-            <p className="text-xs uppercase tracking-[0.4em] text-[hsl(var(--gold-soft))] mb-5">The Craft</p>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] text-balance">
-              Hand-finished. <span className="italic text-[hsl(var(--gold-soft))]">Heart-given.</span>
-            </h2>
-            <div className="gold-rule my-7 max-w-[120px]" />
-            <p className="text-primary-foreground/80 max-w-md leading-relaxed">
-              From traditional zari work to contemporary cuts, we blend heritage techniques with modern silhouettes
-              — so every piece feels uniquely yours.
-            </p>
-            <ul className="mt-10 space-y-3 text-sm text-primary-foreground/85">
-              {["Personal measurement & consultation", "Premium fabric guidance", "Hand-finished embroidery", "On-time delivery, always"].map((i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <span className="mt-2 h-px w-5 bg-[hsl(var(--gold))]" />
-                  {i}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="relative min-h-[60vh] overflow-hidden">
-            <img
-              src={trendBlouse2}
-              alt="Bridal maroon velvet designer blouse with pearl and zardozi work at Poonam Ladies Tailor & Stationary"
-              className="absolute inset-0 h-full w-full object-cover"
-              loading="lazy"
-              width={1024}
-              height={1280}
-            />
-          </div>
-        </div>
-      </section>
+      {/* Gallery / craft strip removed for compactness */}
+
 
       {/* Blouse Designs — AI generated lookbook */}
       <section id="work" className="py-24 md:py-32 bg-background">
