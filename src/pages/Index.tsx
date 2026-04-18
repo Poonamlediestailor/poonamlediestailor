@@ -139,7 +139,7 @@ const Index = () => {
       </section>
 
       {/* Intro / About */}
-      <section id="about" className="py-24 md:py-32" style={{ background: "var(--gradient-warm)" }}>
+      <section id="about" className="py-16 md:py-20" style={{ background: "var(--gradient-warm)" }}>
         <div className="container grid md:grid-cols-12 gap-12 md:gap-16 items-center">
           <div className="md:col-span-5 order-2 md:order-1">
             <img
@@ -179,9 +179,9 @@ const Index = () => {
       </section>
 
       {/* Owners */}
-      <section id="owners" className="py-24 md:py-32 bg-background">
-        <div className="container grid md:grid-cols-12 gap-12 md:gap-16 items-center">
-          <div className="md:col-span-6">
+      <section id="owners" className="py-16 md:py-20 bg-background">
+        <div className="container grid md:grid-cols-12 gap-10 md:gap-14 items-center">
+          <div className="md:col-span-5">
             <div className="relative">
               <img
                 src={shopOwners}
@@ -189,33 +189,32 @@ const Index = () => {
                 className="w-full h-auto shadow-[var(--shadow-elegant)] object-cover aspect-[4/5]"
                 loading="lazy"
               />
-              <div className="absolute -bottom-4 -right-4 bg-[hsl(var(--gold))] text-[hsl(var(--burgundy-deep))] px-5 py-3 text-xs uppercase tracking-[0.25em] hidden sm:block">
+              <div className="absolute -bottom-4 -right-4 bg-[hsl(var(--gold))] text-[hsl(var(--burgundy-deep))] px-4 py-2.5 text-[10px] uppercase tracking-[0.25em] hidden sm:block">
                 The family behind it
               </div>
             </div>
           </div>
-          <div className="md:col-span-6 md:pl-6">
-            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-5">Meet the Owners</p>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-burgundy leading-[1.05] text-balance">
+          <div className="md:col-span-7 md:pl-4">
+            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-4">Meet the Owners</p>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-burgundy leading-[1.05] text-balance">
               Run with <em className="italic">love</em>, by our family.
             </h2>
-            <div className="gold-rule my-7 max-w-[120px]" />
-            <p className="text-foreground/75 leading-relaxed text-base md:text-lg max-w-xl">
-              Poonam ji leads every stitch at the tailoring counter, while her husband looks after
-              the stationery and toys side of the shop. Together, they've built a small neighbourhood
-              shop that feels just like home — where customers are treated like family and every order,
-              big or small, gets the same warm attention.
+            <div className="gold-rule my-5 max-w-[100px]" />
+            <p className="text-foreground/75 leading-relaxed text-base max-w-xl">
+              Poonam ji leads every stitch at the tailoring counter, while her husband looks after the
+              stationery and toys side. Together they run a warm neighbourhood shop where every customer
+              feels like family.
             </p>
           </div>
         </div>
       </section>
 
       {/* Services */}
-      <section id="services" className="py-24 md:py-32 bg-background">
+      <section id="services" className="py-16 md:py-20 bg-background">
         <div className="container">
-          <div className="max-w-2xl mb-16">
-            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-5">Services</p>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-burgundy leading-[1.05] text-balance">
+          <div className="max-w-2xl mb-10 md:mb-12">
+            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-4">Services</p>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-burgundy leading-[1.05] text-balance">
               Tailoring, refined to your every measure.
             </h2>
           </div>
@@ -224,79 +223,41 @@ const Index = () => {
             {services.map((s) => (
               <article
                 key={s.title}
-                className="group bg-background p-8 md:p-10 hover:bg-[hsl(var(--cream))] transition-colors duration-500"
+                className="group bg-background p-6 md:p-7 hover:bg-[hsl(var(--cream))] transition-colors duration-500"
               >
-                <s.icon className="w-7 h-7 text-gold mb-8" strokeWidth={1.25} />
-                <h3 className="font-display text-2xl md:text-3xl text-burgundy mb-3">{s.title}</h3>
+                <s.icon className="w-6 h-6 text-gold mb-5" strokeWidth={1.25} />
+                <h3 className="font-display text-xl md:text-2xl text-burgundy mb-2">{s.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-                <div className="mt-8 h-px w-8 bg-[hsl(var(--gold))] group-hover:w-16 transition-all duration-500" />
+                <div className="mt-5 h-px w-8 bg-[hsl(var(--gold))] group-hover:w-16 transition-all duration-500" />
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Gallery / craft strip */}
-      <section id="gallery" className="relative">
-        <div className="grid md:grid-cols-2">
-          <div className="relative min-h-[60vh] bg-burgundy-deep p-10 md:p-16 lg:p-20 flex flex-col justify-center text-primary-foreground">
-            <p className="text-xs uppercase tracking-[0.4em] text-[hsl(var(--gold-soft))] mb-5">The Craft</p>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] text-balance">
-              Hand-finished. <span className="italic text-[hsl(var(--gold-soft))]">Heart-given.</span>
-            </h2>
-            <div className="gold-rule my-7 max-w-[120px]" />
-            <p className="text-primary-foreground/80 max-w-md leading-relaxed">
-              From traditional zari work to contemporary cuts, we blend heritage techniques with modern silhouettes
-              — so every piece feels uniquely yours.
-            </p>
-            <ul className="mt-10 space-y-3 text-sm text-primary-foreground/85">
-              {["Personal measurement & consultation", "Premium fabric guidance", "Hand-finished embroidery", "On-time delivery, always"].map((i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <span className="mt-2 h-px w-5 bg-[hsl(var(--gold))]" />
-                  {i}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="relative min-h-[60vh] overflow-hidden">
-            <img
-              src={trendBlouse2}
-              alt="Bridal maroon velvet designer blouse with pearl and zardozi work at Poonam Ladies Tailor & Stationary"
-              className="absolute inset-0 h-full w-full object-cover"
-              loading="lazy"
-              width={1024}
-              height={1280}
-            />
-          </div>
-        </div>
-      </section>
+      {/* Gallery / craft strip removed for compactness */}
+
 
       {/* Blouse Designs — AI generated lookbook */}
-      <section id="work" className="py-24 md:py-32 bg-background">
+      <section id="work" className="py-16 md:py-20 bg-background">
         <div className="container">
-          <div className="max-w-2xl mb-12 md:mb-16">
-            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-5 flex items-center gap-2">
+          <div className="max-w-2xl mb-10">
+            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-4 flex items-center gap-2">
               <Wand2 className="w-3.5 h-3.5" strokeWidth={1.5} />
               Blouse Designs · AI Lookbook
             </p>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-burgundy leading-[1.05] text-balance">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-burgundy leading-[1.05] text-balance">
               Designer <em className="italic">blouses</em>, stitched to your fit.
             </h2>
-            <div className="gold-rule my-6 max-w-[120px]" />
-            <p className="text-foreground/70 leading-relaxed max-w-xl">
-              Pick a design you love — bridal, party-wear or everyday — and we'll tailor it for you in your
-              chosen fabric and a flawless fit.
+            <div className="gold-rule my-5 max-w-[100px]" />
+            <p className="text-foreground/70 leading-relaxed max-w-xl text-sm md:text-base">
+              Pick a design you love and we'll tailor it for you in your chosen fabric and a flawless fit.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {galleryImages.map((img, i) => (
-              <figure
-                key={i}
-                className={`group relative overflow-hidden bg-muted ${
-                  i === 0 ? "col-span-2 row-span-2 aspect-square md:aspect-auto" : "aspect-square"
-                }`}
-              >
+              <figure key={i} className="group relative overflow-hidden bg-muted aspect-square">
                 <img
                   src={img.src}
                   alt={img.alt}
@@ -310,76 +271,25 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Stationery & Toys */}
-      <section id="stationery" className="py-24 md:py-32" style={{ background: "var(--gradient-warm)" }}>
-        <div className="container grid md:grid-cols-12 gap-12 md:gap-16 items-center">
-          <div className="md:col-span-6">
-            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-5">Beyond Tailoring</p>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-burgundy leading-[1.05] text-balance">
+      {/* Stationery & Toys (combined) */}
+      <section id="stationery" className="py-16 md:py-20" style={{ background: "var(--gradient-warm)" }}>
+        <div className="container">
+          <div className="max-w-2xl mb-10">
+            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-4">Beyond Tailoring</p>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-burgundy leading-[1.05] text-balance">
               Stationery & toys, <em className="italic">all under one roof</em>.
             </h2>
-            <div className="gold-rule my-7 max-w-[120px]" />
-            <p className="text-foreground/75 leading-relaxed text-base md:text-lg max-w-xl">
-              From school essentials to playful little gifts — we stock everything students and young children
-              need, right next to the tailoring counter. One quick stop for the whole family.
-            </p>
-
-            <div className="grid grid-cols-2 gap-4 mt-10 max-w-lg">
-              {[
-                { icon: BookOpen, title: "Notebooks & Files", desc: "Long, short, register, drawing books" },
-                { icon: Pencil, title: "Pens & Pencils", desc: "Ball pens, gel pens, pencils, sharpeners" },
-                { icon: Palette, title: "Art & Craft", desc: "Crayons, sketch pens, water colours" },
-                { icon: ToyBrick, title: "Kids' Toys", desc: "Soft toys, blocks, cars & small games" },
-              ].map((item) => (
-                <div key={item.title} className="bg-background/70 backdrop-blur-sm border border-border p-5">
-                  <item.icon className="w-6 h-6 text-gold mb-3" strokeWidth={1.25} />
-                  <h3 className="font-display text-lg text-burgundy leading-tight">{item.title}</h3>
-                  <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mt-8">
-              Saree fall · Bidding · Astar · Dhaaga · Sui · Sewing material — all available
+            <div className="gold-rule my-5 max-w-[100px]" />
+            <p className="text-foreground/75 leading-relaxed text-sm md:text-base max-w-xl">
+              Notebooks, pens, pencils and toys — quality essentials at fair prices, available right at the counter
+              alongside saree fall, astar, dhaaga, sui & sewing material.
             </p>
           </div>
 
-          <div className="md:col-span-6">
-            <div className="relative">
-              <img
-                src={stationeryToys}
-                alt="Notebooks, pens, pencils, crayons and small toys for children at Poonam Ladies Tailor & Stationary"
-                className="w-full h-auto shadow-[var(--shadow-elegant)] aspect-square object-cover"
-                loading="lazy"
-                width={1024}
-                height={1024}
-              />
-              <div className="absolute -bottom-4 -left-4 bg-burgundy text-primary-foreground px-5 py-3 text-xs uppercase tracking-[0.25em] hidden sm:block">
-                For school & home
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stationery Products grid */}
-      <section id="stationery-products" className="py-24 md:py-32 bg-background">
-        <div className="container">
-          <div className="max-w-2xl mb-12 md:mb-16">
-            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-5">Stationery Products</p>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-burgundy leading-[1.05] text-balance">
-              Everything for <em className="italic">school</em> & little hands.
-            </h2>
-            <div className="gold-rule my-6 max-w-[120px]" />
-            <p className="text-foreground/70 leading-relaxed max-w-xl">
-              Notebooks, pens, pencils and toys — quality essentials, fair prices, available right at the counter.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
             {[
-              { src: stationeryNotebooks, title: "Notebooks", desc: "Long, short, register & drawing books", icon: BookOpen },
-              { src: stationeryPens, title: "Pens", desc: "Ball pens, gel pens & ink pens", icon: Pencil },
+              { src: stationeryNotebooks, title: "Notebooks", desc: "Long, short, register & drawing", icon: BookOpen },
+              { src: stationeryPens, title: "Pens", desc: "Ball, gel & ink pens", icon: Pencil },
               { src: stationeryPencils, title: "Pencils", desc: "Pencils, erasers & sharpeners", icon: Palette },
               { src: stationeryToysKids, title: "Kids' Toys", desc: "Soft toys, blocks & little cars", icon: ToyBrick },
             ].map((p) => (
@@ -394,10 +304,10 @@ const Index = () => {
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
                   />
                 </div>
-                <div className="pt-5">
-                  <p.icon className="w-5 h-5 text-gold mb-2" strokeWidth={1.25} />
-                  <h3 className="font-display text-xl md:text-2xl text-burgundy leading-tight">{p.title}</h3>
-                  <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">{p.desc}</p>
+                <div className="pt-4">
+                  <p.icon className="w-5 h-5 text-gold mb-1.5" strokeWidth={1.25} />
+                  <h3 className="font-display text-lg md:text-xl text-burgundy leading-tight">{p.title}</h3>
+                  <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{p.desc}</p>
                 </div>
               </article>
             ))}
@@ -406,7 +316,7 @@ const Index = () => {
       </section>
 
       {/* Trending Designs — AI generated lookbook */}
-      <section id="trending" className="py-24 md:py-32 bg-burgundy-deep text-primary-foreground relative overflow-hidden">
+      <section id="trending" className="py-16 md:py-20 bg-burgundy-deep text-primary-foreground relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-30 pointer-events-none"
           style={{
@@ -415,21 +325,18 @@ const Index = () => {
           }}
         />
         <div className="container relative">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-12 md:mb-16">
-            <div className="max-w-2xl">
-              <p className="text-xs uppercase tracking-[0.4em] text-[hsl(var(--gold-soft))] mb-5 flex items-center gap-2">
-                <Wand2 className="w-3.5 h-3.5" strokeWidth={1.5} />
-                Trending Now · AI Lookbook
-              </p>
-              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] text-balance">
-                This season's <em className="italic text-[hsl(var(--gold-soft))]">favourites</em>.
-              </h2>
-              <div className="gold-rule my-6 max-w-[120px]" />
-              <p className="text-primary-foreground/75 max-w-xl leading-relaxed">
-                Browse the latest kurti silhouettes — pick a design you love and we'll stitch
-                it for you in the fabric and fit of your choice.
-              </p>
-            </div>
+          <div className="max-w-2xl mb-10">
+            <p className="text-xs uppercase tracking-[0.4em] text-[hsl(var(--gold-soft))] mb-4 flex items-center gap-2">
+              <Wand2 className="w-3.5 h-3.5" strokeWidth={1.5} />
+              Trending Now · AI Lookbook
+            </p>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05] text-balance">
+              This season's <em className="italic text-[hsl(var(--gold-soft))]">favourites</em>.
+            </h2>
+            <div className="gold-rule my-5 max-w-[100px]" />
+            <p className="text-primary-foreground/75 max-w-xl leading-relaxed text-sm md:text-base">
+              Browse the latest kurti silhouettes — pick a design you love and we'll stitch it for you.
+            </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
@@ -469,16 +376,16 @@ const Index = () => {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="py-24 md:py-32 bg-cream">
-        <div className="container grid md:grid-cols-2 gap-12 md:gap-20">
+      <section id="contact" className="py-16 md:py-20 bg-cream">
+        <div className="container grid md:grid-cols-2 gap-10 md:gap-16">
           <div>
-            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-5">Visit Us</p>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-burgundy leading-[1.05] text-balance">
+            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-4">Visit Us</p>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-burgundy leading-[1.05] text-balance">
               Book your <em className="italic">fitting</em>.
             </h2>
-            <div className="gold-rule my-7 max-w-[120px]" />
-            <p className="text-foreground/75 leading-relaxed max-w-md mb-10">
-              Drop in for a measurement consultation or send us a note — we typically respond within a few hours.
+            <div className="gold-rule my-5 max-w-[100px]" />
+            <p className="text-foreground/75 leading-relaxed max-w-md mb-8 text-sm md:text-base">
+              Drop in for a measurement consultation or call us — we typically respond within a few hours.
             </p>
 
             <ul className="space-y-5 text-sm">
@@ -504,7 +411,17 @@ const Index = () => {
                 <Phone className="w-5 h-5 text-gold mt-0.5 shrink-0" strokeWidth={1.5} />
                 <div>
                   <p className="font-medium text-foreground">Call or WhatsApp</p>
-                  <p className="text-muted-foreground">+91 00000 00000</p>
+                  <a href="tel:+919653692414" className="text-muted-foreground hover:text-burgundy transition-colors block">
+                    +91 96536 92414
+                  </a>
+                  <a
+                    href="https://wa.me/919653692414"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-1 text-xs uppercase tracking-[0.2em] text-burgundy border-b border-[hsl(var(--gold))] pb-0.5 hover:text-[hsl(var(--gold))] transition-colors"
+                  >
+                    Chat on WhatsApp →
+                  </a>
                 </div>
               </li>
               <li className="flex items-start gap-4">
@@ -585,7 +502,7 @@ const Index = () => {
           <div className="flex items-center gap-5 text-sm">
             <a href="#" aria-label="Instagram" className="hover:text-[hsl(var(--gold-soft))] transition-colors"><Instagram className="w-5 h-5" strokeWidth={1.5} /></a>
             <a href="mailto:hello@poonamtailor.com" aria-label="Email" className="hover:text-[hsl(var(--gold-soft))] transition-colors"><Mail className="w-5 h-5" strokeWidth={1.5} /></a>
-            <a href="tel:+910000000000" aria-label="Phone" className="hover:text-[hsl(var(--gold-soft))] transition-colors"><Phone className="w-5 h-5" strokeWidth={1.5} /></a>
+            <a href="tel:+919653692414" aria-label="Phone" className="hover:text-[hsl(var(--gold-soft))] transition-colors"><Phone className="w-5 h-5" strokeWidth={1.5} /></a>
           </div>
           <p className="text-xs text-primary-foreground/60">© {new Date().getFullYear()} Poonam Ladies Tailor</p>
         </div>
