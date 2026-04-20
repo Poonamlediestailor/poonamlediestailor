@@ -338,6 +338,7 @@ export const translations = {
       ],
     },
     trending: {
+      eyebrow: "सध्या ट्रेंडमध्ये · AI लुकबुक",
       title1: "या सीझनच्या ",
       titleEm: "आवडत्या",
       title2: ".",
