@@ -5,13 +5,14 @@ export const translations = {
     nav: {
       services: "Services",
       stationery: "Stationery",
+      cosmetics: "Cosmetics",
       trending: "Trending",
       contact: "Contact",
       bookFitting: "Book Fitting",
       brand: "Ladies Tailor & Stationary",
     },
     hero: {
-      eyebrow: "Tailoring · Stationery · Toys",
+      eyebrow: "Tailoring · Stationery · Cosmetics",
       title1: "Poonam",
       title2: "Ladies Tailor",
       title3: "& Stationary",
@@ -118,13 +119,14 @@ export const translations = {
     nav: {
       services: "सेवाएं",
       stationery: "स्टेशनरी",
+      cosmetics: "कॉस्मेटिक्स",
       trending: "ट्रेंडिंग",
       contact: "संपर्क",
       bookFitting: "फिटिंग बुक करें",
       brand: "लेडीज़ टेलर एंड स्टेशनरी",
     },
     hero: {
-      eyebrow: "सिलाई · स्टेशनरी · खिलौने",
+      eyebrow: "सिलाई · स्टेशनरी · कॉस्मेटिक्स",
       title1: "पूनम",
       title2: "लेडीज़ टेलर",
       title3: "एंड स्टेशनरी",
@@ -231,13 +233,14 @@ export const translations = {
     nav: {
       services: "सेवा",
       stationery: "स्टेशनरी",
+      cosmetics: "कॉस्मेटिक्स",
       trending: "ट्रेंडिंग",
       contact: "संपर्क",
       bookFitting: "फिटिंग बुक करा",
       brand: "लेडीज टेलर आणि स्टेशनरी",
     },
     hero: {
-      eyebrow: "शिवणकाम · स्टेशनरी · खेळणी",
+      eyebrow: "शिवणकाम · स्टेशनरी · कॉस्मेटिक्स",
       title1: "पूनम",
       title2: "लेडीज टेलर",
       title3: "आणि स्टेशनरी",
