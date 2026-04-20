@@ -5,13 +5,14 @@ export const translations = {
     nav: {
       services: "Services",
       stationery: "Stationery",
+      cosmetics: "Cosmetics",
       trending: "Trending",
       contact: "Contact",
       bookFitting: "Book Fitting",
       brand: "Ladies Tailor & Stationary",
     },
     hero: {
-      eyebrow: "Tailoring · Stationery · Toys",
+      eyebrow: "Tailoring · Stationery · Cosmetics",
       title1: "Poonam",
       title2: "Ladies Tailor",
       title3: "& Stationary",
@@ -69,6 +70,19 @@ export const translations = {
         { title: "Kids' Toys", desc: "Soft toys, blocks & little cars" },
       ],
     },
+    cosmetics: {
+      eyebrow: "Beauty Counter",
+      title1: "Cosmetics & ",
+      titleEm: "everyday beauty",
+      title2: " essentials.",
+      desc: "From everyday lipsticks and skincare to bridal beauty kits — handpicked quality cosmetics available right at the shop, perfect for festive occasions and daily care.",
+      items: [
+        { title: "Lipsticks & Lip Care", desc: "Matte, glossy & nude shades" },
+        { title: "Skincare", desc: "Creams, lotions & face care" },
+        { title: "Makeup Kit", desc: "Eyeshadow, kajal, blush & brushes" },
+        { title: "Bridal Beauty", desc: "Bindi, mehendi, bangles & perfume" },
+      ],
+    },
     trending: {
       eyebrow: "Trending Now · AI Lookbook",
       title1: "This season's ",
@@ -118,13 +132,14 @@ export const translations = {
     nav: {
       services: "सेवाएं",
       stationery: "स्टेशनरी",
+      cosmetics: "कॉस्मेटिक्स",
       trending: "ट्रेंडिंग",
       contact: "संपर्क",
       bookFitting: "फिटिंग बुक करें",
       brand: "लेडीज़ टेलर एंड स्टेशनरी",
     },
     hero: {
-      eyebrow: "सिलाई · स्टेशनरी · खिलौने",
+      eyebrow: "सिलाई · स्टेशनरी · कॉस्मेटिक्स",
       title1: "पूनम",
       title2: "लेडीज़ टेलर",
       title3: "एंड स्टेशनरी",
@@ -182,6 +197,19 @@ export const translations = {
         { title: "बच्चों के खिलौने", desc: "सॉफ्ट टॉय, ब्लॉक्स और छोटी कारें" },
       ],
     },
+    cosmetics: {
+      eyebrow: "ब्यूटी काउंटर",
+      title1: "कॉस्मेटिक्स और ",
+      titleEm: "रोज़मर्रा की सुंदरता",
+      title2: " की ज़रूरतें।",
+      desc: "रोज़ की लिपस्टिक और स्किनकेयर से लेकर ब्राइडल ब्यूटी किट तक — चुनिंदा अच्छी क्वालिटी के कॉस्मेटिक्स दुकान पर ही उपलब्ध, त्योहार और रोज़ की देखभाल के लिए परफेक्ट।",
+      items: [
+        { title: "लिपस्टिक और लिप केयर", desc: "मैट, ग्लॉसी और न्यूड शेड्स" },
+        { title: "स्किनकेयर", desc: "क्रीम, लोशन और फेस केयर" },
+        { title: "मेकअप किट", desc: "आईशैडो, काजल, ब्लश और ब्रश" },
+        { title: "ब्राइडल ब्यूटी", desc: "बिंदी, मेहंदी, चूड़ी और परफ्यूम" },
+      ],
+    },
     trending: {
       eyebrow: "अभी ट्रेंड में · AI लुकबुक",
       title1: "इस सीज़न की ",
@@ -231,13 +259,14 @@ export const translations = {
     nav: {
       services: "सेवा",
       stationery: "स्टेशनरी",
+      cosmetics: "कॉस्मेटिक्स",
       trending: "ट्रेंडिंग",
       contact: "संपर्क",
       bookFitting: "फिटिंग बुक करा",
       brand: "लेडीज टेलर आणि स्टेशनरी",
     },
     hero: {
-      eyebrow: "शिवणकाम · स्टेशनरी · खेळणी",
+      eyebrow: "शिवणकाम · स्टेशनरी · कॉस्मेटिक्स",
       title1: "पूनम",
       title2: "लेडीज टेलर",
       title3: "आणि स्टेशनरी",
@@ -293,6 +322,19 @@ export const translations = {
         { title: "पेन", desc: "बॉल, जेल आणि इंक पेन" },
         { title: "पेन्सिल", desc: "पेन्सिल, खोडरबर आणि शार्पनर" },
         { title: "मुलांची खेळणी", desc: "सॉफ्ट टॉय, ब्लॉक्स आणि छोट्या गाड्या" },
+      ],
+    },
+    cosmetics: {
+      eyebrow: "ब्यूटी काउंटर",
+      title1: "कॉस्मेटिक्स आणि ",
+      titleEm: "रोजच्या सौंदर्याच्या",
+      title2: " गरजा.",
+      desc: "रोजच्या लिपस्टिक आणि स्किनकेअरपासून ब्राइडल ब्यूटी किटपर्यंत — निवडक चांगल्या दर्जाचे कॉस्मेटिक्स दुकानातच उपलब्ध, सण आणि रोजच्या काळजीसाठी परफेक्ट.",
+      items: [
+        { title: "लिपस्टिक आणि लिप केअर", desc: "मॅट, ग्लॉसी आणि न्यूड शेड्स" },
+        { title: "स्किनकेअर", desc: "क्रीम, लोशन आणि फेस केअर" },
+        { title: "मेकअप किट", desc: "आयशॅडो, काजळ, ब्लश आणि ब्रश" },
+        { title: "ब्राइडल ब्यूटी", desc: "बिंदी, मेहंदी, बांगड्या आणि परफ्यूम" },
       ],
     },
     trending: {
