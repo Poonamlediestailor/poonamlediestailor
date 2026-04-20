@@ -70,6 +70,19 @@ export const translations = {
         { title: "Kids' Toys", desc: "Soft toys, blocks & little cars" },
       ],
     },
+    cosmetics: {
+      eyebrow: "Beauty Counter",
+      title1: "Cosmetics & ",
+      titleEm: "everyday beauty",
+      title2: " essentials.",
+      desc: "From everyday lipsticks and skincare to bridal beauty kits — handpicked quality cosmetics available right at the shop, perfect for festive occasions and daily care.",
+      items: [
+        { title: "Lipsticks & Lip Care", desc: "Matte, glossy & nude shades" },
+        { title: "Skincare", desc: "Creams, lotions & face care" },
+        { title: "Makeup Kit", desc: "Eyeshadow, kajal, blush & brushes" },
+        { title: "Bridal Beauty", desc: "Bindi, mehendi, bangles & perfume" },
+      ],
+    },
     trending: {
       eyebrow: "Trending Now · AI Lookbook",
       title1: "This season's ",
