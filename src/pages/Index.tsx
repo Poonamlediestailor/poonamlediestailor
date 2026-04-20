@@ -11,8 +11,12 @@ import stationeryNotebooks from "@/assets/stationery-notebooks.jpg";
 import stationeryPens from "@/assets/stationery-pens.jpg";
 import stationeryPencils from "@/assets/stationery-pencils.jpg";
 import stationeryToysKids from "@/assets/stationery-toys-kids.jpg";
+import cosmeticsLipsticks from "@/assets/cosmetics-lipsticks.jpg";
+import cosmeticsSkincare from "@/assets/cosmetics-skincare.jpg";
+import cosmeticsMakeup from "@/assets/cosmetics-makeup.jpg";
+import cosmeticsBridal from "@/assets/cosmetics-bridal.jpg";
 import shopOwners from "@/assets/shop-owners.jpg";
-import { Scissors, Ruler, Sparkles, Phone, MapPin, Clock, Instagram, Mail, Wand2, BookOpen, Pencil, Palette, ToyBrick } from "lucide-react";
+import { Scissors, Ruler, Sparkles, Phone, MapPin, Clock, Instagram, Mail, Wand2, BookOpen, Pencil, Palette, ToyBrick, Heart, Droplets, Brush, Gem } from "lucide-react";
 import { toast } from "sonner";
 import { useLanguage } from "@/i18n/LanguageContext";
 import LanguageToggle from "@/components/LanguageToggle";
@@ -57,6 +61,7 @@ const Index = () => {
           <div className="hidden md:flex items-center gap-8 text-sm text-primary-foreground/85">
             <a href="#services" className="hover:text-primary-foreground transition-colors">{t.nav.services}</a>
             <a href="#stationery" className="hover:text-primary-foreground transition-colors">{t.nav.stationery}</a>
+            <a href="#cosmetics" className="hover:text-primary-foreground transition-colors">{t.nav.cosmetics}</a>
             <a href="#trending" className="hover:text-primary-foreground transition-colors">{t.nav.trending}</a>
             <a href="#contact" className="hover:text-primary-foreground transition-colors">{t.nav.contact}</a>
           </div>
