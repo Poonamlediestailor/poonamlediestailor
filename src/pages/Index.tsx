@@ -292,6 +292,52 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Cosmetics & Beauty */}
+      <section id="cosmetics" className="py-16 md:py-20 bg-background">
+        <div className="container">
+          <div className="max-w-2xl mb-10">
+            <p className="text-xs uppercase tracking-[0.4em] text-gold mb-4">{t.cosmetics.eyebrow}</p>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-burgundy leading-[1.05] text-balance">
+              {t.cosmetics.title1}<em className="italic">{t.cosmetics.titleEm}</em>{t.cosmetics.title2}
+            </h2>
+            <div className="gold-rule my-5 max-w-[100px]" />
+            <p className="text-foreground/75 leading-relaxed text-sm md:text-base max-w-xl">
+              {t.cosmetics.desc}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
+            {[
+              { src: cosmeticsLipsticks, icon: Heart },
+              { src: cosmeticsSkincare, icon: Droplets },
+              { src: cosmeticsMakeup, icon: Brush },
+              { src: cosmeticsBridal, icon: Gem },
+            ].map((p, i) => {
+              const item = t.cosmetics.items[i];
+              return (
+                <article key={item.title} className="group">
+                  <div className="relative overflow-hidden bg-[hsl(var(--cream))] aspect-square">
+                    <img
+                      src={p.src}
+                      alt={`${item.title} — ${item.desc}`}
+                      loading="lazy"
+                      width={1024}
+                      height={1024}
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                    />
+                  </div>
+                  <div className="pt-4">
+                    <p.icon className="w-5 h-5 text-gold mb-1.5" strokeWidth={1.25} />
+                    <h3 className="font-display text-lg md:text-xl text-burgundy leading-tight">{item.title}</h3>
+                    <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{item.desc}</p>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* Trending Designs — AI generated lookbook */}
       <section id="trending" className="py-16 md:py-20 bg-burgundy-deep text-primary-foreground relative overflow-hidden">
         <div
