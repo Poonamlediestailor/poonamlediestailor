@@ -208,7 +208,7 @@ const Index = () => {
             </h2>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-px bg-border">
             {t.services.items.map((s, i) => {
               const Icon = serviceIcons[i];
               return (
