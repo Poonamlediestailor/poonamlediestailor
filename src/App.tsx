@@ -9,14 +9,16 @@ import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
 
-// Detect if we're being served under a sub-path (e.g. lovableproject preview at /poonamlediestailor/)
-// so React Router resolves routes correctly in every environment.
+// Lovableproject sandbox previews serve the app under /<project-slug>/.
+// Detect that case and pass it as the router basename so routes resolve correctly.
+// On the real published domain (.lovable.app) and custom domains, the app is at /,
+// so basename stays "/".
 const getBasename = () => {
   if (typeof window === "undefined") return "/";
-  const firstSegment = window.location.pathname.split("/").filter(Boolean)[0];
-  // Treat any non-app path segment as a basename (lovableproject previews prepend the project slug)
-  if (firstSegment && firstSegment !== "index.html") {
-    return `/${firstSegment}`;
+  const { hostname, pathname } = window.location;
+  if (hostname.endsWith(".lovableproject.com")) {
+    const firstSegment = pathname.split("/").filter(Boolean)[0];
+    if (firstSegment) return `/${firstSegment}`;
   }
   return "/";
 };
