@@ -239,7 +239,13 @@ const Index = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {galleryImages.map((img, i) => (
-              <figure key={i} className="group relative overflow-hidden bg-muted aspect-square">
+              <button
+                type="button"
+                key={i}
+                onClick={() => openLightbox(galleryImages, i)}
+                aria-label={`View ${img.alt}`}
+                className="group relative overflow-hidden bg-muted aspect-square focus:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--gold))]"
+              >
                 <img
                   src={img.src}
                   alt={img.alt}
@@ -247,7 +253,7 @@ const Index = () => {
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-burgundy-deep/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </figure>
+              </button>
             ))}
           </div>
         </div>
