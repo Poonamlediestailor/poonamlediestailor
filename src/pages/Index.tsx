@@ -21,6 +21,7 @@ import { toast } from "sonner";
 import { useLanguage } from "@/i18n/LanguageContext";
 import LanguageToggle from "@/components/LanguageToggle";
 import WhatsAppFab from "@/components/WhatsAppFab";
+import Lightbox, { type LightboxImage } from "@/components/Lightbox";
 
 const galleryImages = [
   { src: trendBlouse1, alt: "AI-designed magenta pink silk blouse with golden zari and gota patti embroidery" },
@@ -36,6 +37,12 @@ const serviceIcons = [Sparkles, Scissors, Ruler, Sparkles];
 const Index = () => {
   const { t } = useLanguage();
   const [form, setForm] = useState({ name: "", phone: "", message: "" });
+  const [lightbox, setLightbox] = useState<{ images: LightboxImage[]; index: number }>({ images: [], index: -1 });
+
+  const openLightbox = (images: LightboxImage[], index: number) =>
+    setLightbox({ images, index });
+  const closeLightbox = () => setLightbox((s) => ({ ...s, index: -1 }));
+  const setLightboxIndex = (index: number) => setLightbox((s) => ({ ...s, index }));
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -232,7 +239,13 @@ const Index = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {galleryImages.map((img, i) => (
-              <figure key={i} className="group relative overflow-hidden bg-muted aspect-square">
+              <button
+                type="button"
+                key={i}
+                onClick={() => openLightbox(galleryImages, i)}
+                aria-label={`View ${img.alt}`}
+                className="group relative overflow-hidden bg-muted aspect-square focus:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--gold))]"
+              >
                 <img
                   src={img.src}
                   alt={img.alt}
@@ -240,7 +253,7 @@ const Index = () => {
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-burgundy-deep/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </figure>
+              </button>
             ))}
           </div>
         </div>
@@ -261,33 +274,45 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
-            {[
-              { src: stationeryNotebooks, icon: BookOpen },
-              { src: stationeryPens, icon: Pencil },
-              { src: stationeryPencils, icon: Palette },
-              { src: stationeryToysKids, icon: ToyBrick },
-            ].map((p, i) => {
-              const item = t.stationery.items[i];
-              return (
-                <article key={item.title} className="group">
-                  <div className="relative overflow-hidden bg-[hsl(var(--cream))] aspect-square">
-                    <img
-                      src={p.src}
-                      alt={`${item.title} — ${item.desc}`}
-                      loading="lazy"
-                      width={1024}
-                      height={1024}
-                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
-                    />
-                  </div>
-                  <div className="pt-4">
-                    <p.icon className="w-5 h-5 text-gold mb-1.5" strokeWidth={1.25} />
-                    <h3 className="font-display text-lg md:text-xl text-burgundy leading-tight">{item.title}</h3>
-                    <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{item.desc}</p>
-                  </div>
-                </article>
-              );
-            })}
+            {(() => {
+              const products = [
+                { src: stationeryNotebooks, icon: BookOpen },
+                { src: stationeryPens, icon: Pencil },
+                { src: stationeryPencils, icon: Palette },
+                { src: stationeryToysKids, icon: ToyBrick },
+              ];
+              const stationeryLightbox: LightboxImage[] = products.map((p, i) => ({
+                src: p.src,
+                alt: `${t.stationery.items[i].title} — ${t.stationery.items[i].desc}`,
+              }));
+              return products.map((p, i) => {
+                const item = t.stationery.items[i];
+                return (
+                  <article key={item.title} className="group">
+                    <button
+                      type="button"
+                      onClick={() => openLightbox(stationeryLightbox, i)}
+                      aria-label={`View ${item.title}`}
+                      className="relative overflow-hidden bg-[hsl(var(--cream))] aspect-square w-full block focus:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--gold))]"
+                    >
+                      <img
+                        src={p.src}
+                        alt={`${item.title} — ${item.desc}`}
+                        loading="lazy"
+                        width={1024}
+                        height={1024}
+                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                      />
+                    </button>
+                    <div className="pt-4">
+                      <p.icon className="w-5 h-5 text-gold mb-1.5" strokeWidth={1.25} />
+                      <h3 className="font-display text-lg md:text-xl text-burgundy leading-tight">{item.title}</h3>
+                      <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{item.desc}</p>
+                    </div>
+                  </article>
+                );
+              });
+            })()}
           </div>
         </div>
       </section>
@@ -307,33 +332,45 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
-            {[
-              { src: cosmeticsLipsticks, icon: Heart },
-              { src: cosmeticsSkincare, icon: Droplets },
-              { src: cosmeticsMakeup, icon: Brush },
-              { src: cosmeticsBridal, icon: Gem },
-            ].map((p, i) => {
-              const item = t.cosmetics.items[i];
-              return (
-                <article key={item.title} className="group">
-                  <div className="relative overflow-hidden bg-[hsl(var(--cream))] aspect-square">
-                    <img
-                      src={p.src}
-                      alt={`${item.title} — ${item.desc}`}
-                      loading="lazy"
-                      width={1024}
-                      height={1024}
-                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
-                    />
-                  </div>
-                  <div className="pt-4">
-                    <p.icon className="w-5 h-5 text-gold mb-1.5" strokeWidth={1.25} />
-                    <h3 className="font-display text-lg md:text-xl text-burgundy leading-tight">{item.title}</h3>
-                    <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{item.desc}</p>
-                  </div>
-                </article>
-              );
-            })}
+            {(() => {
+              const products = [
+                { src: cosmeticsLipsticks, icon: Heart },
+                { src: cosmeticsSkincare, icon: Droplets },
+                { src: cosmeticsMakeup, icon: Brush },
+                { src: cosmeticsBridal, icon: Gem },
+              ];
+              const cosmeticsLightbox: LightboxImage[] = products.map((p, i) => ({
+                src: p.src,
+                alt: `${t.cosmetics.items[i].title} — ${t.cosmetics.items[i].desc}`,
+              }));
+              return products.map((p, i) => {
+                const item = t.cosmetics.items[i];
+                return (
+                  <article key={item.title} className="group">
+                    <button
+                      type="button"
+                      onClick={() => openLightbox(cosmeticsLightbox, i)}
+                      aria-label={`View ${item.title}`}
+                      className="relative overflow-hidden bg-[hsl(var(--cream))] aspect-square w-full block focus:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--gold))]"
+                    >
+                      <img
+                        src={p.src}
+                        alt={`${item.title} — ${item.desc}`}
+                        loading="lazy"
+                        width={1024}
+                        height={1024}
+                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                      />
+                    </button>
+                    <div className="pt-4">
+                      <p.icon className="w-5 h-5 text-gold mb-1.5" strokeWidth={1.25} />
+                      <h3 className="font-display text-lg md:text-xl text-burgundy leading-tight">{item.title}</h3>
+                      <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{item.desc}</p>
+                    </div>
+                  </article>
+                );
+              });
+            })()}
           </div>
         </div>
       </section>
@@ -363,33 +400,44 @@ const Index = () => {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-            {t.trending.items.map((d, i) => (
-              <article key={d.title} className="group">
-                <div className="relative overflow-hidden bg-[hsl(var(--cream))] aspect-[4/5]">
-                  <img
-                    src={trendingKurtiImages[i]}
-                    alt={`${d.title}: ${d.tag}`}
-                    loading="lazy"
-                    width={1024}
-                    height={1280}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                  />
-                  <div className="absolute top-3 left-3 bg-[hsl(var(--burgundy-deep))]/80 backdrop-blur-sm text-[10px] uppercase tracking-[0.2em] text-[hsl(var(--gold-soft))] px-2.5 py-1">
-                    {t.trending.aiBadge}
-                  </div>
-                </div>
-                <div className="pt-5">
-                  <h3 className="font-display text-2xl text-primary-foreground">{d.title}</h3>
-                  <p className="text-xs uppercase tracking-[0.15em] text-primary-foreground/60 mt-1.5">{d.tag}</p>
-                  <a
-                    href="#contact"
-                    className="inline-block mt-4 text-xs uppercase tracking-[0.2em] text-[hsl(var(--gold-soft))] border-b border-[hsl(var(--gold))] pb-0.5 hover:text-primary-foreground transition-colors"
+            {(() => {
+              const kurtiLightbox: LightboxImage[] = t.trending.items.map((d, i) => ({
+                src: trendingKurtiImages[i],
+                alt: `${d.title}: ${d.tag}`,
+              }));
+              return t.trending.items.map((d, i) => (
+                <article key={d.title} className="group">
+                  <button
+                    type="button"
+                    onClick={() => openLightbox(kurtiLightbox, i)}
+                    aria-label={`View ${d.title}`}
+                    className="relative overflow-hidden bg-[hsl(var(--cream))] aspect-[4/5] w-full block focus:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--gold))]"
                   >
-                    {t.trending.stitch}
-                  </a>
-                </div>
-              </article>
-            ))}
+                    <img
+                      src={trendingKurtiImages[i]}
+                      alt={`${d.title}: ${d.tag}`}
+                      loading="lazy"
+                      width={1024}
+                      height={1280}
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                    />
+                    <div className="absolute top-3 left-3 bg-[hsl(var(--burgundy-deep))]/80 backdrop-blur-sm text-[10px] uppercase tracking-[0.2em] text-[hsl(var(--gold-soft))] px-2.5 py-1">
+                      {t.trending.aiBadge}
+                    </div>
+                  </button>
+                  <div className="pt-5">
+                    <h3 className="font-display text-2xl text-primary-foreground">{d.title}</h3>
+                    <p className="text-xs uppercase tracking-[0.15em] text-primary-foreground/60 mt-1.5">{d.tag}</p>
+                    <a
+                      href="#contact"
+                      className="inline-block mt-4 text-xs uppercase tracking-[0.2em] text-[hsl(var(--gold-soft))] border-b border-[hsl(var(--gold))] pb-0.5 hover:text-primary-foreground transition-colors"
+                    >
+                      {t.trending.stitch}
+                    </a>
+                  </div>
+                </article>
+              ));
+            })()}
           </div>
 
           <p className="text-xs text-primary-foreground/45 mt-10 max-w-xl">
@@ -529,6 +577,13 @@ const Index = () => {
       </footer>
 
       <WhatsAppFab />
+
+      <Lightbox
+        images={lightbox.images}
+        index={lightbox.index}
+        onClose={closeLightbox}
+        onIndexChange={setLightboxIndex}
+      />
     </div>
   );
 };
