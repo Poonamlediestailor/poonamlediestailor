@@ -74,6 +74,7 @@ const Index = () => {
             <a href="#stationery" className="hover:text-primary-foreground transition-colors">{t.nav.stationery}</a>
             <a href="#cosmetics" className="hover:text-primary-foreground transition-colors">{t.nav.cosmetics}</a>
             <a href="#trending" className="hover:text-primary-foreground transition-colors">{t.nav.trending}</a>
+            <a href="#reviews" className="hover:text-primary-foreground transition-colors">{t.nav.reviews}</a>
             <a href="#contact" className="hover:text-primary-foreground transition-colors">{t.nav.contact}</a>
           </div>
           <div className="flex items-center gap-2 md:gap-3">
