@@ -454,6 +454,9 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Customer Reviews */}
+      <Testimonials />
+
       {/* Contact */}
       <section id="contact" className="py-16 md:py-20 bg-cream">
         <div className="container grid md:grid-cols-2 gap-10 md:gap-16">
