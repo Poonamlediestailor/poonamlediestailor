@@ -37,6 +37,12 @@ const serviceIcons = [Sparkles, Scissors, Ruler, Sparkles];
 const Index = () => {
   const { t } = useLanguage();
   const [form, setForm] = useState({ name: "", phone: "", message: "" });
+  const [lightbox, setLightbox] = useState<{ images: LightboxImage[]; index: number }>({ images: [], index: -1 });
+
+  const openLightbox = (images: LightboxImage[], index: number) =>
+    setLightbox({ images, index });
+  const closeLightbox = () => setLightbox((s) => ({ ...s, index: -1 }));
+  const setLightboxIndex = (index: number) => setLightbox((s) => ({ ...s, index }));
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
