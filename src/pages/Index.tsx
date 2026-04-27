@@ -577,6 +577,13 @@ const Index = () => {
       </footer>
 
       <WhatsAppFab />
+
+      <Lightbox
+        images={lightbox.images}
+        index={lightbox.index}
+        onClose={closeLightbox}
+        onIndexChange={setLightboxIndex}
+      />
     </div>
   );
 };
