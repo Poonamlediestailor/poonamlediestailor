@@ -21,6 +21,7 @@ import { toast } from "sonner";
 import { useLanguage } from "@/i18n/LanguageContext";
 import LanguageToggle from "@/components/LanguageToggle";
 import WhatsAppFab from "@/components/WhatsAppFab";
+import Lightbox, { type LightboxImage } from "@/components/Lightbox";
 
 const galleryImages = [
   { src: trendBlouse1, alt: "AI-designed magenta pink silk blouse with golden zari and gota patti embroidery" },
