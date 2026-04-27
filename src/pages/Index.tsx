@@ -11,17 +11,21 @@ import stationeryNotebooks from "@/assets/stationery-notebooks.jpg";
 import stationeryPens from "@/assets/stationery-pens.jpg";
 import stationeryPencils from "@/assets/stationery-pencils.jpg";
 import stationeryToysKids from "@/assets/stationery-toys-kids.jpg";
+import stationeryGifts from "@/assets/gifts-rakhi.jpg";
 import cosmeticsLipsticks from "@/assets/cosmetics-lipsticks.jpg";
 import cosmeticsSkincare from "@/assets/cosmetics-skincare.jpg";
 import cosmeticsMakeup from "@/assets/cosmetics-makeup.jpg";
 import cosmeticsBridal from "@/assets/cosmetics-bridal.jpg";
 import shopOwners from "@/assets/shop-owners.jpg";
-import { Scissors, Ruler, Sparkles, Phone, MapPin, Clock, Instagram, Mail, Wand2, BookOpen, Pencil, Palette, ToyBrick, Heart, Droplets, Brush, Gem } from "lucide-react";
+import uniformsImg from "@/assets/uniforms-school.jpg";
+import { Scissors, Ruler, Sparkles, Phone, MapPin, Clock, Instagram, Mail, Wand2, BookOpen, Pencil, Palette, ToyBrick, Heart, Droplets, Brush, Gem, GraduationCap, Gift } from "lucide-react";
 import { toast } from "sonner";
 import { useLanguage } from "@/i18n/LanguageContext";
 import LanguageToggle from "@/components/LanguageToggle";
 import WhatsAppFab from "@/components/WhatsAppFab";
 import Lightbox, { type LightboxImage } from "@/components/Lightbox";
+import AnimatedStat from "@/components/AnimatedStat";
+import Testimonials from "@/components/Testimonials";
 
 const galleryImages = [
   { src: trendBlouse1, alt: "AI-designed magenta pink silk blouse with golden zari and gota patti embroidery" },
@@ -32,7 +36,7 @@ const galleryImages = [
 
 const trendingKurtiImages = [trendKurti1, trendKurti2, trendKurti3];
 
-const serviceIcons = [Sparkles, Scissors, Ruler, Sparkles];
+const serviceIcons = [Sparkles, Scissors, Ruler, GraduationCap, Sparkles];
 
 const Index = () => {
   const { t } = useLanguage();
