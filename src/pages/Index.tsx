@@ -11,17 +11,21 @@ import stationeryNotebooks from "@/assets/stationery-notebooks.jpg";
 import stationeryPens from "@/assets/stationery-pens.jpg";
 import stationeryPencils from "@/assets/stationery-pencils.jpg";
 import stationeryToysKids from "@/assets/stationery-toys-kids.jpg";
+import stationeryGifts from "@/assets/gifts-rakhi.jpg";
 import cosmeticsLipsticks from "@/assets/cosmetics-lipsticks.jpg";
 import cosmeticsSkincare from "@/assets/cosmetics-skincare.jpg";
 import cosmeticsMakeup from "@/assets/cosmetics-makeup.jpg";
 import cosmeticsBridal from "@/assets/cosmetics-bridal.jpg";
 import shopOwners from "@/assets/shop-owners.jpg";
-import { Scissors, Ruler, Sparkles, Phone, MapPin, Clock, Instagram, Mail, Wand2, BookOpen, Pencil, Palette, ToyBrick, Heart, Droplets, Brush, Gem } from "lucide-react";
+import uniformsImg from "@/assets/uniforms-school.jpg";
+import { Scissors, Ruler, Sparkles, Phone, MapPin, Clock, Instagram, Mail, Wand2, BookOpen, Pencil, Palette, ToyBrick, Heart, Droplets, Brush, Gem, GraduationCap, Gift } from "lucide-react";
 import { toast } from "sonner";
 import { useLanguage } from "@/i18n/LanguageContext";
 import LanguageToggle from "@/components/LanguageToggle";
 import WhatsAppFab from "@/components/WhatsAppFab";
 import Lightbox, { type LightboxImage } from "@/components/Lightbox";
+import AnimatedStat from "@/components/AnimatedStat";
+import Testimonials from "@/components/Testimonials";
 
 const galleryImages = [
   { src: trendBlouse1, alt: "AI-designed magenta pink silk blouse with golden zari and gota patti embroidery" },
@@ -32,7 +36,7 @@ const galleryImages = [
 
 const trendingKurtiImages = [trendKurti1, trendKurti2, trendKurti3];
 
-const serviceIcons = [Sparkles, Scissors, Ruler, Sparkles];
+const serviceIcons = [Sparkles, Scissors, Ruler, GraduationCap, Sparkles];
 
 const Index = () => {
   const { t } = useLanguage();
@@ -70,6 +74,7 @@ const Index = () => {
             <a href="#stationery" className="hover:text-primary-foreground transition-colors">{t.nav.stationery}</a>
             <a href="#cosmetics" className="hover:text-primary-foreground transition-colors">{t.nav.cosmetics}</a>
             <a href="#trending" className="hover:text-primary-foreground transition-colors">{t.nav.trending}</a>
+            <a href="#reviews" className="hover:text-primary-foreground transition-colors">{t.nav.reviews}</a>
             <a href="#contact" className="hover:text-primary-foreground transition-colors">{t.nav.contact}</a>
           </div>
           <div className="flex items-center gap-2 md:gap-3">
@@ -152,10 +157,12 @@ const Index = () => {
             </p>
             <dl className="grid grid-cols-3 gap-6 mt-10 max-w-md">
               {t.about.stats.map((s) => (
-                <div key={s.v}>
-                  <dt className="font-display text-3xl md:text-4xl text-burgundy">{s.k}</dt>
-                  <dd className="text-xs uppercase tracking-[0.15em] text-muted-foreground mt-1">{s.v}</dd>
-                </div>
+                <AnimatedStat
+                  key={s.v}
+                  value={s.k}
+                  suffix={s.suffix}
+                  label={s.v}
+                />
               ))}
             </dl>
           </div>
@@ -201,7 +208,7 @@ const Index = () => {
             </h2>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-px bg-border">
             {t.services.items.map((s, i) => {
               const Icon = serviceIcons[i];
               return (
@@ -273,13 +280,14 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-5">
             {(() => {
               const products = [
                 { src: stationeryNotebooks, icon: BookOpen },
                 { src: stationeryPens, icon: Pencil },
                 { src: stationeryPencils, icon: Palette },
                 { src: stationeryToysKids, icon: ToyBrick },
+                { src: stationeryGifts, icon: Gift },
               ];
               const stationeryLightbox: LightboxImage[] = products.map((p, i) => ({
                 src: p.src,
@@ -445,6 +453,9 @@ const Index = () => {
           </p>
         </div>
       </section>
+
+      {/* Customer Reviews */}
+      <Testimonials />
 
       {/* Contact */}
       <section id="contact" className="py-16 md:py-20 bg-cream">
