@@ -157,10 +157,12 @@ const Index = () => {
             </p>
             <dl className="grid grid-cols-3 gap-6 mt-10 max-w-md">
               {t.about.stats.map((s) => (
-                <div key={s.v}>
-                  <dt className="font-display text-3xl md:text-4xl text-burgundy">{s.k}</dt>
-                  <dd className="text-xs uppercase tracking-[0.15em] text-muted-foreground mt-1">{s.v}</dd>
-                </div>
+                <AnimatedStat
+                  key={s.v}
+                  value={s.k}
+                  suffix={s.suffix}
+                  label={s.v}
+                />
               ))}
             </dl>
           </div>
