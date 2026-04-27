@@ -400,33 +400,44 @@ const Index = () => {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-            {t.trending.items.map((d, i) => (
-              <article key={d.title} className="group">
-                <div className="relative overflow-hidden bg-[hsl(var(--cream))] aspect-[4/5]">
-                  <img
-                    src={trendingKurtiImages[i]}
-                    alt={`${d.title}: ${d.tag}`}
-                    loading="lazy"
-                    width={1024}
-                    height={1280}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                  />
-                  <div className="absolute top-3 left-3 bg-[hsl(var(--burgundy-deep))]/80 backdrop-blur-sm text-[10px] uppercase tracking-[0.2em] text-[hsl(var(--gold-soft))] px-2.5 py-1">
-                    {t.trending.aiBadge}
-                  </div>
-                </div>
-                <div className="pt-5">
-                  <h3 className="font-display text-2xl text-primary-foreground">{d.title}</h3>
-                  <p className="text-xs uppercase tracking-[0.15em] text-primary-foreground/60 mt-1.5">{d.tag}</p>
-                  <a
-                    href="#contact"
-                    className="inline-block mt-4 text-xs uppercase tracking-[0.2em] text-[hsl(var(--gold-soft))] border-b border-[hsl(var(--gold))] pb-0.5 hover:text-primary-foreground transition-colors"
+            {(() => {
+              const kurtiLightbox: LightboxImage[] = t.trending.items.map((d, i) => ({
+                src: trendingKurtiImages[i],
+                alt: `${d.title}: ${d.tag}`,
+              }));
+              return t.trending.items.map((d, i) => (
+                <article key={d.title} className="group">
+                  <button
+                    type="button"
+                    onClick={() => openLightbox(kurtiLightbox, i)}
+                    aria-label={`View ${d.title}`}
+                    className="relative overflow-hidden bg-[hsl(var(--cream))] aspect-[4/5] w-full block focus:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--gold))]"
                   >
-                    {t.trending.stitch}
-                  </a>
-                </div>
-              </article>
-            ))}
+                    <img
+                      src={trendingKurtiImages[i]}
+                      alt={`${d.title}: ${d.tag}`}
+                      loading="lazy"
+                      width={1024}
+                      height={1280}
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                    />
+                    <div className="absolute top-3 left-3 bg-[hsl(var(--burgundy-deep))]/80 backdrop-blur-sm text-[10px] uppercase tracking-[0.2em] text-[hsl(var(--gold-soft))] px-2.5 py-1">
+                      {t.trending.aiBadge}
+                    </div>
+                  </button>
+                  <div className="pt-5">
+                    <h3 className="font-display text-2xl text-primary-foreground">{d.title}</h3>
+                    <p className="text-xs uppercase tracking-[0.15em] text-primary-foreground/60 mt-1.5">{d.tag}</p>
+                    <a
+                      href="#contact"
+                      className="inline-block mt-4 text-xs uppercase tracking-[0.2em] text-[hsl(var(--gold-soft))] border-b border-[hsl(var(--gold))] pb-0.5 hover:text-primary-foreground transition-colors"
+                    >
+                      {t.trending.stitch}
+                    </a>
+                  </div>
+                </article>
+              ));
+            })()}
           </div>
 
           <p className="text-xs text-primary-foreground/45 mt-10 max-w-xl">
