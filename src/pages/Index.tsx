@@ -280,13 +280,14 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-5">
             {(() => {
               const products = [
                 { src: stationeryNotebooks, icon: BookOpen },
                 { src: stationeryPens, icon: Pencil },
                 { src: stationeryPencils, icon: Palette },
                 { src: stationeryToysKids, icon: ToyBrick },
+                { src: stationeryGifts, icon: Gift },
               ];
               const stationeryLightbox: LightboxImage[] = products.map((p, i) => ({
                 src: p.src,
